@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet"><title>.: jlm :.</title><style>html,head,body { padding:0; margin:0; }
+<html><head><meta charset="UTF-8"> <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet"><meta charset="UTF-8"><title>.: jlm :.</title><style>html,head,body { padding:0; margin:0; }
 body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">
 (function() {
 'use strict';
@@ -11980,88 +11980,9 @@ var _user$project$SiteText$errorLines = function () {
 	var lines = A2(_elm_lang$core$List$repeat, 100, _user$project$SiteText$errortext);
 	return A2(_elm_lang$core$List$map, foo, lines);
 }();
-var _user$project$SiteText$contactLines = {
-	ctor: '::',
-	_0: A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$StyleSheet$bodyText,
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text('Nothing to see here!'),
-			_1: {ctor: '[]'}
-		}),
-	_1: {ctor: '[]'}
-};
-var _user$project$SiteText$projectLines = {
-	ctor: '::',
-	_0: A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$StyleSheet$bodyText,
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text('Nothing to see here!'),
-			_1: {ctor: '[]'}
-		}),
-	_1: {ctor: '[]'}
-};
-var _user$project$SiteText$experienceLines = {
-	ctor: '::',
-	_0: A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$StyleSheet$bodyText,
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text('Nothing to see here!'),
-			_1: {ctor: '[]'}
-		}),
-	_1: {ctor: '[]'}
-};
-var _user$project$SiteText$homeLines = {
-	ctor: '::',
-	_0: A2(
-		_elm_lang$html$Html$div,
-		{
-			ctor: '::',
-			_0: _user$project$StyleSheet$bodyText,
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html$text('Nothing to see here!'),
-			_1: {ctor: '[]'}
-		}),
-	_1: {ctor: '[]'}
-};
-var _user$project$SiteText$getLines = function (p) {
-	var _p0 = p;
-	switch (_p0.ctor) {
-		case 'About':
-			return _user$project$SiteText$homeLines;
-		case 'Projects':
-			return _user$project$SiteText$projectLines;
-		case 'Experience':
-			return _user$project$SiteText$experienceLines;
-		case 'Contact':
-			return _user$project$SiteText$contactLines;
-		default:
-			return _user$project$SiteText$errorLines;
-	}
-};
 var _user$project$SiteText$buildLines = function (lines) {
-	var _p1 = lines;
-	if (_p1.ctor === '[]') {
+	var _p0 = lines;
+	if (_p0.ctor === '[]') {
 		return {ctor: '[]'};
 	} else {
 		return {
@@ -12075,11 +11996,771 @@ var _user$project$SiteText$buildLines = function (lines) {
 				},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text(_p1._0),
+					_0: _elm_lang$html$Html$text(_p0._0),
 					_1: {ctor: '[]'}
 				}),
-			_1: _user$project$SiteText$buildLines(_p1._1)
+			_1: _user$project$SiteText$buildLines(_p0._1)
 		};
+	}
+};
+var _user$project$SiteText$placeHolderOn = true;
+var _user$project$SiteText$placeholder = {
+	ctor: '::',
+	_0: A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$StyleSheet$bodyText,
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('More information and content coming soon!'),
+			_1: {ctor: '[]'}
+		}),
+	_1: {ctor: '[]'}
+};
+var _user$project$SiteText$homeLines = _user$project$SiteText$placeHolderOn ? _user$project$SiteText$placeholder : {
+	ctor: '::',
+	_0: A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$StyleSheet$bodyText,
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('I was born in '),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$a,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$href('https://en.wikipedia.org/wiki/New_York_City'),
+						_1: {
+							ctor: '::',
+							_0: _user$project$StyleSheet$linkText,
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('New York'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(', and like any good New Yorker I had to say that first.'),
+					_1: {ctor: '[]'}
+				}
+			}
+		}),
+	_1: {
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _user$project$StyleSheet$bodyText,
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('At a young age I discovered a love for hiking, canoeing, Lego, science fiction, and more.'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$StyleSheet$bodyText,
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('I was first exposed to computer programming through '),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$a,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$href('https://en.wikipedia.org/wiki/MicroWorlds'),
+								_1: {
+									ctor: '::',
+									_0: _user$project$StyleSheet$linkText,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Microworlds'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(' and later '),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$href('https://scratch.mit.edu/'),
+										_1: {
+											ctor: '::',
+											_0: _user$project$StyleSheet$linkText,
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Scratch'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('.'),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _user$project$StyleSheet$bodyText,
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('More of my website is coming soon!'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		}
+	}
+};
+var _user$project$SiteText$experienceLines = _user$project$SiteText$placeHolderOn ? _user$project$SiteText$placeholder : {
+	ctor: '::',
+	_0: A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$StyleSheet$bodyText,
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('My first job ever, during middle school, was '),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$a,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$href('http://robofun.org'),
+						_1: {
+							ctor: '::',
+							_0: _user$project$StyleSheet$linkText,
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('teaching'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(' programming and robotics to kids!'),
+					_1: {ctor: '[]'}
+				}
+			}
+		}),
+	_1: {
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _user$project$StyleSheet$bodyText,
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('I did work at a summer mobile app development program with a Master Inventor at IBM Research.'),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$StyleSheet$bodyText,
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('I spent a summer at the '),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$a,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$href('https://cyber.harvard.edu/research/privacy'),
+								_1: {
+									ctor: '::',
+									_0: _user$project$StyleSheet$linkText,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Berkman Center'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(' doing research on privacy issues.'),
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _user$project$StyleSheet$bodyText,
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('That summer I even got to collaborate with the '),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$a,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$href('https://llk.media.mit.edu/'),
+									_1: {
+										ctor: '::',
+										_0: _user$project$StyleSheet$linkText,
+										_1: {ctor: '[]'}
+									}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('MIT team'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(' that created Scratch! It was a total dream come true.'),
+								_1: {ctor: '[]'}
+							}
+						}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _user$project$StyleSheet$bodyText,
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('I worked on a machine learning project with '),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$href('https://galton.uchicago.edu/~lafferty/'),
+										_1: {
+											ctor: '::',
+											_0: _user$project$StyleSheet$linkText,
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('John Lafferty'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('.'),
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _user$project$StyleSheet$bodyText,
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('I currently manage the '),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$a,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$href('http://mock-trial.uchicago.edu/'),
+											_1: {
+												ctor: '::',
+												_0: _user$project$StyleSheet$linkText,
+												_1: {ctor: '[]'}
+											}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('website'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(' for the mock trial team I compete with. We are '),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$a,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$href('https://www.chicagomaroon.com/article/2016/4/22/mock-trial-team-earn-accolades-at-national-championship/'),
+													_1: {
+														ctor: '::',
+														_0: _user$project$StyleSheet$linkText,
+														_1: {ctor: '[]'}
+													}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('pretty good!'),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$div,
+								{
+									ctor: '::',
+									_0: _user$project$StyleSheet$bodyText,
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('I\'m serving as the vice president of my dorm council. We try to make life '),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$a,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$href('http://i.imgur.com/BTVfdKO.gifv'),
+												_1: {
+													ctor: '::',
+													_0: _user$project$StyleSheet$linkText,
+													_1: {ctor: '[]'}
+												}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('more fun'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html$text(' for everyone.'),
+											_1: {ctor: '[]'}
+										}
+									}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$div,
+									{
+										ctor: '::',
+										_0: _user$project$StyleSheet$bodyText,
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('This summer, I am working on natural language processing management of security infrastructure for a '),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$a,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$href('https://www.nytimes.com/2016/06/13/technology/a-computer-security-start-up-turns-the-tables-on-hackers.html'),
+													_1: {
+														ctor: '::',
+														_0: _user$project$StyleSheet$linkText,
+														_1: {ctor: '[]'}
+													}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('cybersecurity startup'),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _user$project$SiteText$projectLines = _user$project$SiteText$placeHolderOn ? _user$project$SiteText$placeholder : {
+	ctor: '::',
+	_0: A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$StyleSheet$bodyText,
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('I am always putting together new little '),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$a,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$href('https://github.com/jmilbauer'),
+						_1: {
+							ctor: '::',
+							_0: _user$project$StyleSheet$linkText,
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('explorations'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(' as I learn more languages and design paradigms. I usually forget to upload them.'),
+					_1: {ctor: '[]'}
+				}
+			}
+		}),
+	_1: {
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _user$project$StyleSheet$bodyText,
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Back in high school, I wrote '),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$a,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$href(''),
+							_1: {
+								ctor: '::',
+								_0: _user$project$StyleSheet$linkText,
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('LazyRPG'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(', a text-based rpg game'),
+						_1: {ctor: '[]'}
+					}
+				}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$StyleSheet$bodyText,
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('I wrote a program that converts '),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$a,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$href('https://github.com/jmilbauer/ASCII_Art_Java'),
+								_1: {
+									ctor: '::',
+									_0: _user$project$StyleSheet$linkText,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('images to ASCII art'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _user$project$StyleSheet$bodyText,
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('I wrote a web-based turing machine simulator named '),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$a,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$href('projects/ada.html'),
+									_1: {
+										ctor: '::',
+										_0: _user$project$StyleSheet$linkText,
+										_1: {ctor: '[]'}
+									}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Ada'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(' after the first \"programmer\"'),
+								_1: {ctor: '[]'}
+							}
+						}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _user$project$StyleSheet$bodyText,
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('I made '),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$href('index.html'),
+										_1: {
+											ctor: '::',
+											_0: _user$project$StyleSheet$linkText,
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('this website'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html$text(' using '),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$a,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$href('http://elm-lang.org/'),
+												_1: {
+													ctor: '::',
+													_0: _user$project$StyleSheet$linkText,
+													_1: {ctor: '[]'}
+												}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Elm'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html$text(', a functional programming language for the web'),
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}
+						}),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	}
+};
+var _user$project$SiteText$contactLines = _user$project$SiteText$placeHolderOn ? _user$project$SiteText$placeholder : {
+	ctor: '::',
+	_0: A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$StyleSheet$bodyText,
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('You can email me at: jmilbauer <at> uchicago <dot> edu'),
+			_1: {ctor: '[]'}
+		}),
+	_1: {
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _user$project$StyleSheet$bodyText,
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('You can visit me on '),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$a,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$href('https://www.linkedin.com/in/jmilbauer'),
+							_1: {
+								ctor: '::',
+								_0: _user$project$StyleSheet$linkText,
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('linkedin'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$StyleSheet$bodyText,
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('You can visit me on '),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$a,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$href('https://github.com/jmilbauer'),
+								_1: {
+									ctor: '::',
+									_0: _user$project$StyleSheet$linkText,
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('github'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
+					{ctor: '[]'}),
+				_1: {ctor: '[]'}
+			}
+		}
+	}
+};
+var _user$project$SiteText$getLines = function (p) {
+	var _p1 = p;
+	switch (_p1.ctor) {
+		case 'About':
+			return _user$project$SiteText$homeLines;
+		case 'Projects':
+			return _user$project$SiteText$projectLines;
+		case 'Experience':
+			return _user$project$SiteText$experienceLines;
+		case 'Contact':
+			return _user$project$SiteText$contactLines;
+		default:
+			return _user$project$SiteText$errorLines;
 	}
 };
 var _user$project$Site$update = F2(

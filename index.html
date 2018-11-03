@@ -2,7 +2,7 @@
 <html><head>
     <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8"><title>.: jlm</title><style>html,head,body { padding:0; margin:0; }
+    <meta charset="UTF-8"><title>.: jlm :.</title><style>html,head,body { padding:0; margin:0; }
 body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">
 (function() {
 'use strict';
@@ -11761,13 +11761,9 @@ var _user$project$Header$Noop = {ctor: 'Noop'};
 var _user$project$Header$Goto = function (a) {
 	return {ctor: 'Goto', _0: a};
 };
-var _user$project$Style$footerStyle = _elm_lang$html$Html_Attributes$style(
-	{ctor: '[]'});
-var _user$project$Style$bodyStyle = _elm_lang$html$Html_Attributes$style(
+var _user$project$Style$bgStyle = _elm_lang$html$Html_Attributes$style(
 	{ctor: '[]'});
 var _user$project$Style$rightBannerStyle = _elm_lang$html$Html_Attributes$style(
-	{ctor: '[]'});
-var _user$project$Style$leftBannerStyle = _elm_lang$html$Html_Attributes$style(
 	{ctor: '[]'});
 var _user$project$Style$pageStyle = _elm_lang$html$Html_Attributes$style(
 	{ctor: '[]'});
@@ -11791,11 +11787,80 @@ var _user$project$Style$navStyle = _elm_lang$html$Html_Attributes$style(
 		_1: {ctor: '[]'}
 	});
 var _user$project$Style$bgWhite = '#ffffff';
+var _user$project$Style$bodyStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: A2(_user$project$Style$set, 'background-color', _user$project$Style$bgWhite),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_user$project$Style$set,
+				'margin-left',
+				_user$project$Style$px(5)),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_user$project$Style$set,
+					'margin-right',
+					_user$project$Style$px(5)),
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _user$project$Style$footerStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: A2(_user$project$Style$set, 'background-color', _user$project$Style$bgWhite),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_user$project$Style$set,
+				'padding',
+				_user$project$Style$px(10)),
+			_1: {
+				ctor: '::',
+				_0: A2(_user$project$Style$set, 'text-align', 'right'),
+				_1: {
+					ctor: '::',
+					_0: A2(_user$project$Style$set, 'color', '#dddddd'),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	});
 var _user$project$Style$burntOrange = '#CC8B32';
+var _user$project$Style$lightGray = 'dddddd';
 var _user$project$Style$offBlack = '#515151';
 var _user$project$Style$blood = '#CF232B';
 var _user$project$Style$darkSlate = '#569DC2';
 var _user$project$Style$slate = '#367DA2';
+var _user$project$Style$leftBannerStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: A2(_user$project$Style$set, 'position', 'fixed'),
+		_1: {
+			ctor: '::',
+			_0: A2(_user$project$Style$set, 'top', '0'),
+			_1: {
+				ctor: '::',
+				_0: A2(_user$project$Style$set, 'left', '0'),
+				_1: {
+					ctor: '::',
+					_0: A2(_user$project$Style$set, 'bottom', '0'),
+					_1: {
+						ctor: '::',
+						_0: A2(_user$project$Style$set, 'width', '10%'),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Style$set, 'background-color', _user$project$Style$slate),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Style$backgroundPath = 'images/mondrian_bg.jpg';
 var _user$project$Style$sticky_padding = 20;
 var _user$project$Style$headerStyle = _elm_lang$html$Html_Attributes$style(
 	{
@@ -11804,7 +11869,21 @@ var _user$project$Style$headerStyle = _elm_lang$html$Html_Attributes$style(
 			_user$project$Style$set,
 			'padding-top',
 			_user$project$Style$px(_user$project$Style$sticky_padding)),
-		_1: {ctor: '[]'}
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_user$project$Style$set,
+				'margin-left',
+				_user$project$Style$px(5)),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_user$project$Style$set,
+					'margin-right',
+					_user$project$Style$px(5)),
+				_1: {ctor: '[]'}
+			}
+		}
 	});
 var _user$project$Style$stdmargin = 20;
 var _user$project$Style$mainStyle = _elm_lang$html$Html_Attributes$style(
@@ -11812,29 +11891,26 @@ var _user$project$Style$mainStyle = _elm_lang$html$Html_Attributes$style(
 		ctor: '::',
 		_0: A2(
 			_user$project$Style$set,
-			'padding-bottom',
+			'padding-left',
 			_user$project$Style$px(_user$project$Style$stdmargin)),
 		_1: {
 			ctor: '::',
 			_0: A2(
 				_user$project$Style$set,
-				'padding-left',
+				'padding-right',
 				_user$project$Style$px(_user$project$Style$stdmargin)),
 			_1: {
 				ctor: '::',
-				_0: A2(
-					_user$project$Style$set,
-					'padding-right',
-					_user$project$Style$px(_user$project$Style$stdmargin)),
+				_0: A2(_user$project$Style$set, 'margin', 'auto'),
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'margin', 'auto'),
+					_0: A2(
+						_user$project$Style$set,
+						'max-width',
+						_user$project$Style$px(600)),
 					_1: {
 						ctor: '::',
-						_0: A2(
-							_user$project$Style$set,
-							'max-width',
-							_user$project$Style$px(400)),
+						_0: A2(_user$project$Style$set, 'background-color', _user$project$Style$bgWhite),
 						_1: {ctor: '[]'}
 					}
 				}
@@ -11856,14 +11932,18 @@ var _user$project$Style$bannerStyle = _elm_lang$html$Html_Attributes$style(
 					_0: A2(_user$project$Style$set, 'background-color', _user$project$Style$bgWhite),
 					_1: {
 						ctor: '::',
-						_0: A2(_user$project$Style$set, 'box-shadow', '0px 15px 15px rgba(255,255,255,1)'),
+						_0: A2(_user$project$Style$set, 'box-shadow', '0px 15px 15px 0px rgba(255,255,255,1)'),
 						_1: {
 							ctor: '::',
 							_0: A2(
 								_user$project$Style$set,
 								'margin-bottom',
 								_user$project$Style$px(_user$project$Style$stdmargin)),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: A2(_user$project$Style$set, 'width', '100%'),
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}
@@ -11880,7 +11960,7 @@ var _user$project$Style$titleStyle = _elm_lang$html$Html_Attributes$style(
 			_0: _user$project$Style$fontstyle,
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'font-size', '300%'),
+				_0: A2(_user$project$Style$set, 'font-size', '360%'),
 				_1: {
 					ctor: '::',
 					_0: A2(_user$project$Style$set, 'text-align', 'left'),
@@ -11902,7 +11982,7 @@ var _user$project$Style$paragraphStyle = _elm_lang$html$Html_Attributes$style(
 			_0: _user$project$Style$fontstyle,
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'font-size', '100%'),
+				_0: A2(_user$project$Style$set, 'font-size', '120%'),
 				_1: {
 					ctor: '::',
 					_0: A2(_user$project$Style$set, 'text-align', 'justify'),
@@ -11927,7 +12007,7 @@ var _user$project$Style$navTextInactive = _elm_lang$html$Html_Attributes$style(
 			_0: _user$project$Style$fontstyle,
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'font-size', '100%'),
+				_0: A2(_user$project$Style$set, 'font-size', '120%'),
 				_1: {
 					ctor: '::',
 					_0: A2(_user$project$Style$set, 'cursor', 'pointer'),
@@ -11949,7 +12029,7 @@ var _user$project$Style$navTextActive = _elm_lang$html$Html_Attributes$style(
 			_0: _user$project$Style$fontstyle,
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'font-size', '100%'),
+				_0: A2(_user$project$Style$set, 'font-size', '120%'),
 				_1: {
 					ctor: '::',
 					_0: A2(_user$project$Style$set, 'cursor', 'default'),
@@ -11984,6 +12064,11 @@ var _user$project$Style$navTextSeparator = _elm_lang$html$Html_Attributes$style(
 			}
 		}
 	});
+var _user$project$Content$footerText = {
+	ctor: '::',
+	_0: ' 2018 | Jeremiah Milbauer | CCBYSA ',
+	_1: {ctor: '[]'}
+};
 var _user$project$Content$errorPageText = {
 	ctor: '::',
 	_0: 'You found the error page!',
@@ -12000,7 +12085,7 @@ var _user$project$Content$infoPageText = {
 			_0: 'My work focuses on representation learning, semantic analysis, and the philosophy of artificial intelligence. I plan to attend graduate school and focus on natural language processing.',
 			_1: {
 				ctor: '::',
-				_0: 'Beyond my technical and academic pursuits, I play the Carillon (a strange and wonderful musical instrument), I enjoy a casual approach to contest mathematics, and I run a weekly dungeons & dragons game. I am also an award-winning Mock Trial competitor.',
+				_0: 'Beyond my technical and academic pursuits, I play the Carillon (a strange and wonderful musical instrument), I enjoy a casual approach to contest mathematics, and I run a weekly dungeons & dragons game. I am also an award-winning mock trial competitor.',
 				_1: {ctor: '[]'}
 			}
 		}
@@ -12131,7 +12216,12 @@ var _user$project$Site$buildFooter = function (model) {
 			_0: _user$project$Style$footerStyle,
 			_1: {ctor: '[]'}
 		},
-		{ctor: '[]'});
+		A2(
+			_elm_lang$core$List$map,
+			function (l) {
+				return _elm_lang$html$Html$text(l);
+			},
+			_user$project$Content$footerText));
 };
 var _user$project$Site$buildContent = _user$project$Site$simpleBody;
 var _user$project$Site$buildBGRight = function (model) {
@@ -12150,6 +12240,20 @@ var _user$project$Site$buildBGLeft = function (model) {
 		{
 			ctor: '::',
 			_0: _user$project$Style$leftBannerStyle,
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(''),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Site$buildBG = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _user$project$Style$bgStyle,
 			_1: {ctor: '[]'}
 		},
 		{ctor: '[]'});
@@ -12306,9 +12410,8 @@ var _user$project$Site$buildMain = function (model) {
 		});
 };
 var _user$project$Site$buildPage = function (model) {
-	var r = _user$project$Site$buildBGRight(model);
 	var m = _user$project$Site$buildMain(model);
-	var l = _user$project$Site$buildBGLeft(model);
+	var bg = _user$project$Site$buildBG(model);
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -12318,8 +12421,12 @@ var _user$project$Site$buildPage = function (model) {
 		},
 		{
 			ctor: '::',
-			_0: m,
-			_1: {ctor: '[]'}
+			_0: bg,
+			_1: {
+				ctor: '::',
+				_0: m,
+				_1: {ctor: '[]'}
+			}
 		});
 };
 var _user$project$Site$view = function (model) {

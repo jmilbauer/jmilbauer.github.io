@@ -11823,35 +11823,50 @@ var _user$project$Style$navStyle = _elm_lang$html$Html_Attributes$style(
 			_user$project$Style$set,
 			'margin-bottom',
 			_user$project$Style$px(10)),
-		_1: {ctor: '[]'}
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_user$project$Style$set,
+				'margin-top',
+				_user$project$Style$px(5)),
+			_1: {ctor: '[]'}
+		}
 	});
 var _user$project$Style$bgWhite = '#ffffff';
 var _user$project$Style$bannerStyle = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
-		_0: A2(_user$project$Style$set, 'position', 'sticky'),
+		_0: A2(_user$project$Style$set, 'position', '-webkit-sticky'),
 		_1: {
 			ctor: '::',
-			_0: A2(_user$project$Style$set, 'top', '0'),
+			_0: A2(_user$project$Style$set, 'position', 'sticky'),
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'background-color', _user$project$Style$bgWhite),
+				_0: A2(_user$project$Style$set, 'top', '0'),
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'left', '0%'),
+					_0: A2(_user$project$Style$set, 'background-color', _user$project$Style$bgWhite),
 					_1: {
 						ctor: '::',
-						_0: A2(_user$project$Style$set, 'right', '0%'),
+						_0: A2(_user$project$Style$set, 'left', '0%'),
 						_1: {
 							ctor: '::',
-							_0: A2(_user$project$Style$set, 'box-shadow', '0px 15px 15px rgba(255,255,255,1)'),
+							_0: A2(_user$project$Style$set, 'right', '0%'),
 							_1: {
 								ctor: '::',
-								_0: A2(
-									_user$project$Style$set,
-									'margin-bottom',
-									_user$project$Style$px(20)),
-								_1: {ctor: '[]'}
+								_0: A2(_user$project$Style$set, 'box-shadow', '0px 15px 15px rgba(255,255,255,1)'),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_user$project$Style$set,
+										'margin-bottom',
+										_user$project$Style$px(20)),
+									_1: {
+										ctor: '::',
+										_0: A2(_user$project$Style$set, 'float', 'center'),
+										_1: {ctor: '[]'}
+									}
+								}
 							}
 						}
 					}
@@ -11878,8 +11893,19 @@ var _user$project$Style$titleStyle = _elm_lang$html$Html_Attributes$style(
 				_0: A2(_user$project$Style$set, 'font-size', '300%'),
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'text-align', 'left'),
-					_1: {ctor: '[]'}
+					_0: A2(
+						_user$project$Style$set,
+						'margin-top',
+						_user$project$Style$px(50)),
+					_1: {
+						ctor: '::',
+						_0: A2(_user$project$Style$set, 'text-align', 'left'),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Style$set, 'line-height', '.9'),
+							_1: {ctor: '[]'}
+						}
+					}
 				}
 			}
 		}
@@ -11982,7 +12008,7 @@ var _user$project$Content$errorPageText = {
 };
 var _user$project$Content$infoPageText = {
 	ctor: '::',
-	_0: 'Hello!',
+	_0: 'Hello there!',
 	_1: {
 		ctor: '::',
 		_0: 'I\'m Jeremiah. I am currently an undergraduate at the University of Chicago, a machine learning researcher with Ben Zhao at SANDLab, and I lead analytics for the Foodie App. Previously, I worked with John Lafferty on topic modeling, and I recently completed a summer internship at the Google self-driving car project.',

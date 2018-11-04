@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html><head>
-    <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass:200,400" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8"><title>.: jlm :.</title><style>html,head,body { padding:0; margin:0; }
 body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">
@@ -11761,6 +11761,8 @@ var _user$project$Header$Noop = {ctor: 'Noop'};
 var _user$project$Header$Goto = function (a) {
 	return {ctor: 'Goto', _0: a};
 };
+var _user$project$Style$linkText = _elm_lang$html$Html_Attributes$style(
+	{ctor: '[]'});
 var _user$project$Style$bgStyle = _elm_lang$html$Html_Attributes$style(
 	{ctor: '[]'});
 var _user$project$Style$rightBannerStyle = _elm_lang$html$Html_Attributes$style(
@@ -11830,6 +11832,7 @@ var _user$project$Style$footerStyle = _elm_lang$html$Html_Attributes$style(
 	});
 var _user$project$Style$burntOrange = '#CC8B32';
 var _user$project$Style$lightGray = 'dddddd';
+var _user$project$Style$lightOffBlack = '#999999';
 var _user$project$Style$offBlack = '#515151';
 var _user$project$Style$blood = '#CF232B';
 var _user$project$Style$darkSlate = '#569DC2';
@@ -11861,6 +11864,9 @@ var _user$project$Style$leftBannerStyle = _elm_lang$html$Html_Attributes$style(
 		}
 	});
 var _user$project$Style$backgroundPath = 'images/mondrian_bg.jpg';
+var _user$project$Style$std_nav = '110%';
+var _user$project$Style$std_title = '330%';
+var _user$project$Style$std_text = '110%';
 var _user$project$Style$sticky_padding = 20;
 var _user$project$Style$headerStyle = _elm_lang$html$Html_Attributes$style(
 	{
@@ -11950,6 +11956,9 @@ var _user$project$Style$bannerStyle = _elm_lang$html$Html_Attributes$style(
 			}
 		}
 	});
+var _user$project$Style$navWeight = {ctor: '_Tuple2', _0: 'font-weight', _1: '400'};
+var _user$project$Style$textWeight = {ctor: '_Tuple2', _0: 'font-weight', _1: '200'};
+var _user$project$Style$titleWeight = {ctor: '_Tuple2', _0: 'font-weight', _1: '400'};
 var _user$project$Style$fontstyle = {ctor: '_Tuple2', _0: 'font-family', _1: 'overpass'};
 var _user$project$Style$titleStyle = _elm_lang$html$Html_Attributes$style(
 	{
@@ -11960,14 +11969,18 @@ var _user$project$Style$titleStyle = _elm_lang$html$Html_Attributes$style(
 			_0: _user$project$Style$fontstyle,
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'font-size', '360%'),
+				_0: _user$project$Style$titleWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'text-align', 'left'),
+					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_title),
 					_1: {
 						ctor: '::',
-						_0: A2(_user$project$Style$set, 'line-height', '1'),
-						_1: {ctor: '[]'}
+						_0: A2(_user$project$Style$set, 'text-align', 'left'),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Style$set, 'line-height', '1'),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}
@@ -11982,17 +11995,21 @@ var _user$project$Style$paragraphStyle = _elm_lang$html$Html_Attributes$style(
 			_0: _user$project$Style$fontstyle,
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'font-size', '120%'),
+				_0: _user$project$Style$textWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'text-align', 'justify'),
+					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_text),
 					_1: {
 						ctor: '::',
-						_0: A2(
-							_user$project$Style$set,
-							'margin-bottom',
-							_user$project$Style$px(20)),
-						_1: {ctor: '[]'}
+						_0: A2(_user$project$Style$set, 'text-align', 'left'),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_user$project$Style$set,
+								'margin-bottom',
+								_user$project$Style$px(20)),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}
@@ -12001,20 +12018,24 @@ var _user$project$Style$paragraphStyle = _elm_lang$html$Html_Attributes$style(
 var _user$project$Style$navTextInactive = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
-		_0: A2(_user$project$Style$set, 'color', _user$project$Style$slate),
+		_0: A2(_user$project$Style$set, 'color', _user$project$Style$offBlack),
 		_1: {
 			ctor: '::',
 			_0: _user$project$Style$fontstyle,
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'font-size', '120%'),
+				_0: _user$project$Style$navWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'cursor', 'pointer'),
+					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_nav),
 					_1: {
 						ctor: '::',
-						_0: A2(_user$project$Style$set, 'text-align', 'center'),
-						_1: {ctor: '[]'}
+						_0: A2(_user$project$Style$set, 'cursor', 'pointer'),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Style$set, 'text-align', 'center'),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}
@@ -12029,14 +12050,18 @@ var _user$project$Style$navTextActive = _elm_lang$html$Html_Attributes$style(
 			_0: _user$project$Style$fontstyle,
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'font-size', '120%'),
+				_0: _user$project$Style$navWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'cursor', 'default'),
+					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_nav),
 					_1: {
 						ctor: '::',
-						_0: A2(_user$project$Style$set, 'text-align', 'center'),
-						_1: {ctor: '[]'}
+						_0: A2(_user$project$Style$set, 'cursor', 'default'),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Style$set, 'text-align', 'center'),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}
@@ -12045,20 +12070,24 @@ var _user$project$Style$navTextActive = _elm_lang$html$Html_Attributes$style(
 var _user$project$Style$navTextSeparator = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
-		_0: A2(_user$project$Style$set, 'color', _user$project$Style$slate),
+		_0: A2(_user$project$Style$set, 'color', _user$project$Style$offBlack),
 		_1: {
 			ctor: '::',
 			_0: _user$project$Style$fontstyle,
 			_1: {
 				ctor: '::',
-				_0: A2(_user$project$Style$set, 'font-size', '100%'),
+				_0: _user$project$Style$navWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'cursor', 'default'),
+					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_nav),
 					_1: {
 						ctor: '::',
-						_0: A2(_user$project$Style$set, 'text-align', 'center'),
-						_1: {ctor: '[]'}
+						_0: A2(_user$project$Style$set, 'cursor', 'default'),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Style$set, 'text-align', 'center'),
+							_1: {ctor: '[]'}
+						}
 					}
 				}
 			}

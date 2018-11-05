@@ -11753,22 +11753,36 @@ var _evancz$elm_graphics$Collage$ngon = F2(
 				f,
 				A2(_elm_lang$core$List$range, 0, n - 1)));
 	});
+var _user$project$Header$Model = F2(
+	function (a, b) {
+		return {currentPage: a, selectedTags: b};
+	});
 var _user$project$Header$Error = {ctor: 'Error'};
 var _user$project$Header$Contact = {ctor: 'Contact'};
 var _user$project$Header$Projects = {ctor: 'Projects'};
 var _user$project$Header$Info = {ctor: 'Info'};
 var _user$project$Header$Noop = {ctor: 'Noop'};
+var _user$project$Header$RemoveTag = function (a) {
+	return {ctor: 'RemoveTag', _0: a};
+};
+var _user$project$Header$AddTag = function (a) {
+	return {ctor: 'AddTag', _0: a};
+};
 var _user$project$Header$Goto = function (a) {
 	return {ctor: 'Goto', _0: a};
 };
-var _user$project$Style$linkText = _elm_lang$html$Html_Attributes$style(
-	{ctor: '[]'});
 var _user$project$Style$bgStyle = _elm_lang$html$Html_Attributes$style(
 	{ctor: '[]'});
 var _user$project$Style$rightBannerStyle = _elm_lang$html$Html_Attributes$style(
 	{ctor: '[]'});
 var _user$project$Style$pageStyle = _elm_lang$html$Html_Attributes$style(
 	{ctor: '[]'});
+var _user$project$Style$pct = function (n) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Basics$toString(n),
+		'%');
+};
 var _user$project$Style$px = function (n) {
 	return A2(
 		_elm_lang$core$Basics_ops['++'],
@@ -11843,9 +11857,11 @@ var _user$project$Style$leftBannerStyle = _elm_lang$html$Html_Attributes$style(
 		}
 	});
 var _user$project$Style$backgroundPath = 'images/mondrian_bg.jpg';
-var _user$project$Style$std_nav = '110%';
-var _user$project$Style$std_title = '330%';
-var _user$project$Style$std_text = '110%';
+var _user$project$Style$std_nav = 110;
+var _user$project$Style$std_title = 330;
+var _user$project$Style$subtitle_size = 130;
+var _user$project$Style$tag_size = 90;
+var _user$project$Style$std_text = 110;
 var _user$project$Style$sticky_padding = 20;
 var _user$project$Style$headerStyle = _elm_lang$html$Html_Attributes$style(
 	{
@@ -11951,7 +11967,10 @@ var _user$project$Style$titleStyle = _elm_lang$html$Html_Attributes$style(
 				_0: _user$project$Style$titleWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_title),
+					_0: A2(
+						_user$project$Style$set,
+						'font-size',
+						_user$project$Style$pct(_user$project$Style$std_title)),
 					_1: {
 						ctor: '::',
 						_0: A2(_user$project$Style$set, 'text-align', 'left'),
@@ -11977,7 +11996,10 @@ var _user$project$Style$paragraphStyle = _elm_lang$html$Html_Attributes$style(
 				_0: _user$project$Style$textWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_text),
+					_0: A2(
+						_user$project$Style$set,
+						'font-size',
+						_user$project$Style$pct(_user$project$Style$std_text)),
 					_1: {
 						ctor: '::',
 						_0: A2(_user$project$Style$set, 'text-align', 'left'),
@@ -12023,6 +12045,130 @@ var _user$project$Style$footerStyle = _elm_lang$html$Html_Attributes$style(
 			}
 		}
 	});
+var _user$project$Style$linkText = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: A2(_user$project$Style$set, 'color', _user$project$Style$slate),
+		_1: {
+			ctor: '::',
+			_0: _user$project$Style$fontstyle,
+			_1: {
+				ctor: '::',
+				_0: A2(_user$project$Style$set, 'font-size', '100%'),
+				_1: {
+					ctor: '::',
+					_0: A2(_user$project$Style$set, 'text-align', 'left'),
+					_1: {
+						ctor: '::',
+						_0: A2(_user$project$Style$set, 'cursor', 'pointer'),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Style$tagStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: A2(_user$project$Style$set, 'color', _user$project$Style$slate),
+		_1: {
+			ctor: '::',
+			_0: _user$project$Style$fontstyle,
+			_1: {
+				ctor: '::',
+				_0: _user$project$Style$textWeight,
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_user$project$Style$set,
+						'font-size',
+						_user$project$Style$pct(_user$project$Style$tag_size)),
+					_1: {
+						ctor: '::',
+						_0: A2(_user$project$Style$set, 'cursor', 'pointer'),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_user$project$Style$set,
+								'margin-bottom',
+								_user$project$Style$px(5)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Style$tagSeparationStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: A2(_user$project$Style$set, 'color', _user$project$Style$offBlack),
+		_1: {
+			ctor: '::',
+			_0: _user$project$Style$fontstyle,
+			_1: {
+				ctor: '::',
+				_0: _user$project$Style$textWeight,
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_user$project$Style$set,
+						'font-size',
+						_user$project$Style$pct(_user$project$Style$tag_size)),
+					_1: {
+						ctor: '::',
+						_0: A2(_user$project$Style$set, 'cursor', 'default'),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Style$tag_separator = A2(
+	_elm_lang$html$Html$span,
+	{
+		ctor: '::',
+		_0: _user$project$Style$tagSeparationStyle,
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html$text(' | '),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Style$filter_separator = A2(
+	_elm_lang$html$Html$span,
+	{
+		ctor: '::',
+		_0: _user$project$Style$tagSeparationStyle,
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html$text(' & '),
+		_1: {ctor: '[]'}
+	});
+var _user$project$Style$subtitleStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: A2(_user$project$Style$set, 'color', _user$project$Style$offBlack),
+		_1: {
+			ctor: '::',
+			_0: _user$project$Style$fontstyle,
+			_1: {
+				ctor: '::',
+				_0: _user$project$Style$textWeight,
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_user$project$Style$set,
+						'font-size',
+						_user$project$Style$pct(_user$project$Style$subtitle_size)),
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	});
 var _user$project$Style$navTextInactive = _elm_lang$html$Html_Attributes$style(
 	{
 		ctor: '::',
@@ -12035,7 +12181,10 @@ var _user$project$Style$navTextInactive = _elm_lang$html$Html_Attributes$style(
 				_0: _user$project$Style$navWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_nav),
+					_0: A2(
+						_user$project$Style$set,
+						'font-size',
+						_user$project$Style$pct(_user$project$Style$std_nav)),
 					_1: {
 						ctor: '::',
 						_0: A2(_user$project$Style$set, 'cursor', 'pointer'),
@@ -12061,7 +12210,10 @@ var _user$project$Style$navTextActive = _elm_lang$html$Html_Attributes$style(
 				_0: _user$project$Style$navWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_nav),
+					_0: A2(
+						_user$project$Style$set,
+						'font-size',
+						_user$project$Style$pct(_user$project$Style$std_nav)),
 					_1: {
 						ctor: '::',
 						_0: A2(_user$project$Style$set, 'cursor', 'default'),
@@ -12087,7 +12239,10 @@ var _user$project$Style$navTextSeparator = _elm_lang$html$Html_Attributes$style(
 				_0: _user$project$Style$navWeight,
 				_1: {
 					ctor: '::',
-					_0: A2(_user$project$Style$set, 'font-size', _user$project$Style$std_nav),
+					_0: A2(
+						_user$project$Style$set,
+						'font-size',
+						_user$project$Style$pct(_user$project$Style$std_nav)),
 					_1: {
 						ctor: '::',
 						_0: A2(_user$project$Style$set, 'cursor', 'default'),
@@ -12103,7 +12258,7 @@ var _user$project$Style$navTextSeparator = _elm_lang$html$Html_Attributes$style(
 	});
 var _user$project$Content$footerText = {
 	ctor: '::',
-	_0: ' 2018 | Jeremiah Milbauer | CCBYSA ',
+	_0: ' 2018 | Jeremiah Milbauer | CC-BY-SA ',
 	_1: {ctor: '[]'}
 };
 var _user$project$Content$errorPageText = {
@@ -12111,29 +12266,500 @@ var _user$project$Content$errorPageText = {
 	_0: 'You found the error page!',
 	_1: {ctor: '[]'}
 };
+var _user$project$Content$projectPageText = {
+	ctor: '::',
+	_0: {
+		ctor: '_Tuple3',
+		_0: 'ConVec: Distributed Embeddings for Real-World Entities',
+		_1: {
+			ctor: '::',
+			_0: 'ml',
+			_1: {
+				ctor: '::',
+				_0: 'nlp',
+				_1: {
+					ctor: '::',
+					_0: 'research',
+					_1: {ctor: '[]'}
+				}
+			}
+		},
+		_2: A2(
+			_elm_lang$html$Html$span,
+			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('ConVec is the beginning of a system for embedding \"weird\" words and real-world entities, from small datasets. ConVec can use widely dissimilar datasources for the embedding. It is currently a '),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$a,
+						{
+							ctor: '::',
+							_0: _user$project$Style$linkText,
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$href('https://github.com/jmilbauer/convec'),
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('work-in-progress'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('.'),
+						_1: {ctor: '[]'}
+					}
+				}
+			})
+	},
+	_1: {
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple3',
+			_0: 'The Foodie App: Ratings for Every Dish',
+			_1: {
+				ctor: '::',
+				_0: 'nlp',
+				_1: {
+					ctor: '::',
+					_0: 'app',
+					_1: {ctor: '[]'}
+				}
+			},
+			_2: A2(
+				_elm_lang$html$Html$span,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Have wondered \"What\'s the best dish on the menu?\" '),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$a,
+							{
+								ctor: '::',
+								_0: _user$project$Style$linkText,
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$href('https://www.thefoodieapp.com/'),
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('The Foodie App'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(' helps you find the answer. I work on the NLP that powers Foodie\'s granular ratings system and also run the team building our business-facing analytics platform. We are currently preparing for a YCombinator interview.'),
+							_1: {ctor: '[]'}
+						}
+					}
+				})
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple3',
+				_0: 'Atticus: Learning Legal Sentiment from Judicial Opinions',
+				_1: {
+					ctor: '::',
+					_0: 'nlp',
+					_1: {
+						ctor: '::',
+						_0: 'research',
+						_1: {
+							ctor: '::',
+							_0: 'sandlab',
+							_1: {ctor: '[]'}
+						}
+					}
+				},
+				_2: A2(
+					_elm_lang$html$Html$span,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('Is it possible for machines to understand the law? Atticus is an exploration into the potential for simple semantic analysis techniques to be applied to the languaged of judicial decisions.'),
+						_1: {ctor: '[]'}
+					})
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple3',
+					_0: 'Intelligent Mapping for Self-driving Cars',
+					_1: {
+						ctor: '::',
+						_0: 'research',
+						_1: {
+							ctor: '::',
+							_0: 'cars',
+							_1: {ctor: '[]'}
+						}
+					},
+					_2: A2(
+						_elm_lang$html$Html$span,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('I spent Summer 2018 working on fleet optimization and intelligent mapping at '),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _user$project$Style$linkText,
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$href('https://waymo.com/'),
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Waymo'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html$text(', the Google self-driving car project. The specifics of my work are currently under NDA.'),
+									_1: {ctor: '[]'}
+								}
+							}
+						})
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple3',
+						_0: 'D&D Gameplay Tokens',
+						_1: {
+							ctor: '::',
+							_0: 'maker',
+							_1: {
+								ctor: '::',
+								_0: 'games',
+								_1: {
+									ctor: '::',
+									_0: 'design',
+									_1: {ctor: '[]'}
+								}
+							}
+						},
+						_2: A2(
+							_elm_lang$html$Html$span,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('I love making things. I love playing games with my friends. And I also love creating dramatic worlds filled with exciting characters. As part of an ongoing dungeons and dragons campaign, I teamed up with the '),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$a,
+										{
+											ctor: '::',
+											_0: _user$project$Style$linkText,
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$href('https://polsky.uchicago.edu/fab-lab/'),
+												_1: {ctor: '[]'}
+											}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Polsky Center Fab Lab'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(' to build artistic \"character tokens\" to represent the personality of the various player characters in my D&D game.'),
+										_1: {ctor: '[]'}
+									}
+								}
+							})
+					},
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple3',
+							_0: 'Ada: Programmable Turing Machine',
+							_1: {
+								ctor: '::',
+								_0: 'web',
+								_1: {
+									ctor: '::',
+									_0: 'interactive',
+									_1: {
+										ctor: '::',
+										_0: 'app',
+										_1: {ctor: '[]'}
+									}
+								}
+							},
+							_2: A2(
+								_elm_lang$html$Html$span,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Ada (named after Ada Lovelace) is an interactive, programmable Turing Machine that I built in Elm for a class on functional programming. As the Turing Machine runs, you can even watch a little animation of the tape and read-head as they go about their business. Try Ada '),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$a,
+											{
+												ctor: '::',
+												_0: _user$project$Style$linkText,
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$href('/projects/ada.html'),
+													_1: {ctor: '[]'}
+												}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('here'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('.'),
+											_1: {ctor: '[]'}
+										}
+									}
+								})
+						},
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple3',
+								_0: 'The Hopper Project',
+								_1: {
+									ctor: '::',
+									_0: 'nlp',
+									_1: {
+										ctor: '::',
+										_0: 'ml',
+										_1: {
+											ctor: '::',
+											_0: 'research',
+											_1: {ctor: '[]'}
+										}
+									}
+								},
+								_2: A2(
+									_elm_lang$html$Html$span,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('I worked with John Lafferty on an attempt to develop embeddings for symbolic mathematics and improve search and recommendation systems for scientific corpora. My primary contributions to '),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$a,
+												{
+													ctor: '::',
+													_0: _user$project$Style$linkText,
+													_1: {
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$href('https://github.com/hopper-project'),
+														_1: {ctor: '[]'}
+													}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('the project'),
+													_1: {ctor: '[]'}
+												}),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(' were the pipeline for processing ground-truth data and the topic modeling system used to identify and disambiguate concepts within an article.'),
+												_1: {ctor: '[]'}
+											}
+										}
+									})
+							},
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple3',
+									_0: 'Student Privacy: The Next Frontier',
+									_1: {
+										ctor: '::',
+										_0: 'privacy',
+										_1: {
+											ctor: '::',
+											_0: 'research',
+											_1: {
+												ctor: '::',
+												_0: 'berkman-klein center',
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									_2: A2(
+										_elm_lang$html$Html$span,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('I wrote an article and contributed research to the '),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$a,
+													{
+														ctor: '::',
+														_0: _user$project$Style$linkText,
+														_1: {
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$href('https://cyber.harvard.edu/node/99063'),
+															_1: {ctor: '[]'}
+														}
+													},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text(' Berkman-Klein Center\'s 2015 report'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html$text(' on privacy in the EdTech space.'),
+													_1: {ctor: '[]'}
+												}
+											}
+										})
+								},
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple3',
+										_0: 'Student Privacy Initiative Newsletter',
+										_1: {
+											ctor: '::',
+											_0: 'philosophy',
+											_1: {
+												ctor: '::',
+												_0: 'privacy',
+												_1: {
+													ctor: '::',
+													_0: 'berkman-klein center',
+													_1: {ctor: '[]'}
+												}
+											}
+										},
+										_2: A2(
+											_elm_lang$html$Html$span,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('As a summer \"Berktern\" at the Berkman-Klein Center for Internet & Society, I managed a newsletter about issues relating to '),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$a,
+														{
+															ctor: '::',
+															_0: _user$project$Style$linkText,
+															_1: {
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$href('https://cyber.harvard.edu/research/studentprivacy'),
+																_1: {ctor: '[]'}
+															}
+														},
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html$text('privacy and EdTech'),
+															_1: {ctor: '[]'}
+														}),
+													_1: {
+														ctor: '::',
+														_0: _elm_lang$html$Html$text(' in the news.'),
+														_1: {ctor: '[]'}
+													}
+												}
+											})
+									},
+									_1: {
+										ctor: '::',
+										_0: {
+											ctor: '_Tuple3',
+											_0: 'Simple Code Demos',
+											_1: {
+												ctor: '::',
+												_0: 'demo',
+												_1: {
+													ctor: '::',
+													_0: 'ml',
+													_1: {ctor: '[]'}
+												}
+											},
+											_2: A2(
+												_elm_lang$html$Html$span,
+												{ctor: '[]'},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('I often upload code samples and small projects to '),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$a,
+															{
+																ctor: '::',
+																_0: _user$project$Style$linkText,
+																_1: {
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Attributes$href('https://github.com/jmilbauer/'),
+																	_1: {ctor: '[]'}
+																}
+															},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text('my github'),
+																_1: {ctor: '[]'}
+															}),
+														_1: {
+															ctor: '::',
+															_0: _elm_lang$html$Html$text(', mainly as I try to familiarize myself with the theory and practice of different languages, algorithms, and AI paradigms.'),
+															_1: {ctor: '[]'}
+														}
+													}
+												})
+										},
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
 var _user$project$Content$infoPageText = {
 	ctor: '::',
 	_0: 'Hello there!',
 	_1: {
 		ctor: '::',
-		_0: 'I\'m Jeremiah. I am currently an undergraduate at the University of Chicago, a machine learning researcher with Ben Zhao at SANDLab, and the head of analytics for the Foodie App. I previously worked with John Lafferty on topic modeling, and I recently completed a summer internship at the Google self-driving car project.',
+		_0: 'I\'m Jeremiah. I am currently a student at the University of Chicago, an undergraduate researcher with Ben Zhao at SANDLab, and the head of analytics for the Foodie App. I previously worked with John Lafferty on topic modeling, and I recently completed a summer internship at the Google self-driving car project.',
 		_1: {
 			ctor: '::',
 			_0: 'My work focuses on representation learning, semantic analysis, and the philosophy of artificial intelligence. I plan to attend graduate school for natural language processing and AI.',
 			_1: {
 				ctor: '::',
-				_0: 'Beyond my technical and academic pursuits, I play the Carillon (a strange and wonderful musical instrument), I enjoy a casual approach to contest mathematics, and I run a weekly dungeons & dragons game. I am also an award-winning mock trial competitor.',
+				_0: 'Beyond my technical and academic pursuits, I play the Carillon (a strange and wonderful musical instrument), I enjoy a casual approach to contest mathematics, and I run a weekly dungeons & dragons game. I am also the President of my dorm council and an award-winning mock trial competitor.',
 				_1: {ctor: '[]'}
 			}
 		}
 	}
 };
 var _user$project$Content$placeHolderString = 'More information and content coming soon!';
-var _user$project$Content$projectPageText = {
-	ctor: '::',
-	_0: _user$project$Content$placeHolderString,
-	_1: {ctor: '[]'}
-};
 var _user$project$Content$contactPageText = {
 	ctor: '::',
 	_0: _user$project$Content$placeHolderString,
@@ -12180,44 +12806,208 @@ var _user$project$Content$generateSimpleBody = function (text) {
 			A2(_elm_lang$core$List$map, buildParagraph, text));
 	}
 };
-var _user$project$Content$getContent = function (p) {
-	var _p0 = p;
-	switch (_p0.ctor) {
+var _user$project$Content$generateSectionedBody = F2(
+	function (model, sections) {
+		if (_user$project$Content$placeHolderOn) {
+			return _user$project$Content$placeholder;
+		} else {
+			var activeSections = _elm_lang$core$Native_Utils.eq(
+				model.selectedTags,
+				{ctor: '[]'}) ? sections : A2(
+				_elm_lang$core$List$filter,
+				function (_p0) {
+					var _p1 = _p0;
+					return A2(
+						_elm_lang$core$List$all,
+						A2(_elm_lang$core$Basics$flip, _elm_lang$core$List$member, _p1._1),
+						model.selectedTags);
+				},
+				sections);
+			var buildParagraph = function (_p2) {
+				var _p3 = _p2;
+				var textDiv = A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _user$project$Style$paragraphStyle,
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _p3._2,
+						_1: {ctor: '[]'}
+					});
+				var subtitleDiv = A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _user$project$Style$subtitleStyle,
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(_p3._0),
+						_1: {ctor: '[]'}
+					});
+				var tagSpans = A2(
+					_elm_lang$core$List$map,
+					function (t) {
+						return A2(
+							_elm_lang$html$Html$span,
+							{
+								ctor: '::',
+								_0: _user$project$Style$tagStyle,
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Events$onClick(
+										_user$project$Header$AddTag(t)),
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(t),
+								_1: {ctor: '[]'}
+							});
+					},
+					_p3._1);
+				var tagsDiv = A2(
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
+					A2(_elm_lang$core$List$intersperse, _user$project$Style$tag_separator, tagSpans));
+				return A2(
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: subtitleDiv,
+						_1: {
+							ctor: '::',
+							_0: tagsDiv,
+							_1: {
+								ctor: '::',
+								_0: textDiv,
+								_1: {ctor: '[]'}
+							}
+						}
+					});
+			};
+			var activeTagSpans = A2(
+				_elm_lang$core$List$map,
+				function (t) {
+					return A2(
+						_elm_lang$html$Html$span,
+						{
+							ctor: '::',
+							_0: _user$project$Style$tagStyle,
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onClick(
+									_user$project$Header$RemoveTag(t)),
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(t),
+							_1: {ctor: '[]'}
+						});
+				},
+				model.selectedTags);
+			var activeTagDiv = _elm_lang$core$Native_Utils.eq(
+				model.selectedTags,
+				{ctor: '[]'}) ? A2(
+				_elm_lang$html$Html$span,
+				{ctor: '[]'},
+				{ctor: '[]'}) : A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$Style$paragraphStyle,
+					_1: {ctor: '[]'}
+				},
+				A2(_elm_lang$core$List$intersperse, _user$project$Style$filter_separator, activeTagSpans));
+			return A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$Style$bodyStyle,
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: activeTagDiv,
+					_1: A2(_elm_lang$core$List$map, buildParagraph, activeSections)
+				});
+		}
+	});
+var _user$project$Content$getContent = function (m) {
+	var _p4 = m.currentPage;
+	switch (_p4.ctor) {
 		case 'Info':
 			return _user$project$Content$generateSimpleBody(_user$project$Content$infoPageText);
 		case 'Projects':
-			return _user$project$Content$generateSimpleBody(_user$project$Content$projectPageText);
+			return A2(_user$project$Content$generateSectionedBody, m, _user$project$Content$projectPageText);
 		case 'Contact':
 			return _user$project$Content$generateSimpleBody(_user$project$Content$contactPageText);
 		default:
 			return _user$project$Content$generateSimpleBody(_user$project$Content$errorPageText);
 	}
 };
+var _user$project$Site$removeTag = F2(
+	function (existing, del) {
+		return A2(
+			_elm_lang$core$List$filter,
+			function (m) {
+				return !_elm_lang$core$Native_Utils.eq(m, del);
+			},
+			existing);
+	});
+var _user$project$Site$addTag = F2(
+	function (existing, $new) {
+		return A2(_elm_lang$core$List$member, $new, existing) ? existing : {ctor: '::', _0: $new, _1: existing};
+	});
 var _user$project$Site$update = F2(
 	function (msg, model) {
 		var newModel = function () {
 			var _p0 = msg;
-			if (_p0.ctor === 'Goto') {
-				switch (_p0._0.ctor) {
-					case 'Info':
-						return _elm_lang$core$Native_Utils.update(
-							model,
-							{currentPage: _user$project$Header$Info});
-					case 'Projects':
-						return _elm_lang$core$Native_Utils.update(
-							model,
-							{currentPage: _user$project$Header$Projects});
-					case 'Contact':
-						return _elm_lang$core$Native_Utils.update(
-							model,
-							{currentPage: _user$project$Header$Contact});
-					default:
-						return _elm_lang$core$Native_Utils.update(
-							model,
-							{currentPage: _user$project$Header$Error});
-				}
-			} else {
-				return model;
+			switch (_p0.ctor) {
+				case 'Goto':
+					switch (_p0._0.ctor) {
+						case 'Info':
+							return _elm_lang$core$Native_Utils.update(
+								model,
+								{currentPage: _user$project$Header$Info});
+						case 'Projects':
+							return _elm_lang$core$Native_Utils.update(
+								model,
+								{
+									currentPage: _user$project$Header$Projects,
+									selectedTags: {ctor: '[]'}
+								});
+						case 'Contact':
+							return _elm_lang$core$Native_Utils.update(
+								model,
+								{currentPage: _user$project$Header$Contact});
+						default:
+							return _elm_lang$core$Native_Utils.update(
+								model,
+								{currentPage: _user$project$Header$Error});
+					}
+				case 'AddTag':
+					return _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							selectedTags: A2(_user$project$Site$addTag, model.selectedTags, _p0._0)
+						});
+				case 'RemoveTag':
+					return _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							selectedTags: A2(_user$project$Site$removeTag, model.selectedTags, _p0._0)
+						});
+				default:
+					return model;
 			}
 		}();
 		return {ctor: '_Tuple2', _0: newModel, _1: _elm_lang$core$Platform_Cmd$none};
@@ -12226,10 +13016,13 @@ var _user$project$Site$subscriptions = function (model) {
 	return _elm_lang$core$Platform_Sub$batch(
 		{ctor: '[]'});
 };
-var _user$project$Site$initialModel = {currentPage: _user$project$Header$Info};
+var _user$project$Site$initialModel = {
+	currentPage: _user$project$Header$Info,
+	selectedTags: {ctor: '[]'}
+};
 var _user$project$Site$init = {ctor: '_Tuple2', _0: _user$project$Site$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
 var _user$project$Site$simpleBody = function (model) {
-	return _user$project$Content$getContent(model.currentPage);
+	return _user$project$Content$getContent(model);
 };
 var _user$project$Site$buildTitle = function (model) {
 	return A2(
@@ -12295,7 +13088,7 @@ var _user$project$Site$buildBG = function (model) {
 		},
 		{ctor: '[]'});
 };
-var _user$project$Site$separator = A2(
+var _user$project$Site$nav_separator = A2(
 	_elm_lang$html$Html$span,
 	{
 		ctor: '::',
@@ -12385,7 +13178,7 @@ var _user$project$Site$buildNavigator = function (model) {
 			_0: A2(
 				_elm_lang$html$Html$span,
 				{ctor: '[]'},
-				A2(_elm_lang$core$List$intersperse, _user$project$Site$separator, navItems)),
+				A2(_elm_lang$core$List$intersperse, _user$project$Site$nav_separator, navItems)),
 			_1: {ctor: '[]'}
 		});
 };
@@ -12481,9 +13274,6 @@ var _user$project$Site$view = function (model) {
 };
 var _user$project$Site$main = _elm_lang$html$Html$program(
 	{init: _user$project$Site$init, view: _user$project$Site$view, update: _user$project$Site$update, subscriptions: _user$project$Site$subscriptions})();
-var _user$project$Site$Model = function (a) {
-	return {currentPage: a};
-};
 var Elm = {};
 Elm['Site'] = Elm['Site'] || {};
 if (typeof _user$project$Site$main !== 'undefined') {

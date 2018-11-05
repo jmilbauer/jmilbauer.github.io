@@ -9130,6 +9130,9 @@ var _elm_lang$html$Html_Events$Options = F2(
 	function (a, b) {
 		return {stopPropagation: a, preventDefault: b};
 	});
+var _elm_lang$html$Html_Lazy$lazy3 = _elm_lang$virtual_dom$VirtualDom$lazy3;
+var _elm_lang$html$Html_Lazy$lazy2 = _elm_lang$virtual_dom$VirtualDom$lazy2;
+var _elm_lang$html$Html_Lazy$lazy = _elm_lang$virtual_dom$VirtualDom$lazy;
 var _elm_lang$mouse$Mouse_ops = _elm_lang$mouse$Mouse_ops || {};
 _elm_lang$mouse$Mouse_ops['&>'] = F2(
 	function (t1, t2) {
@@ -12270,7 +12273,7 @@ var _user$project$Content$projectPageText = {
 	ctor: '::',
 	_0: {
 		ctor: '_Tuple3',
-		_0: 'ConVec: Distributed Embeddings for Real-World Entities',
+		_0: 'ConVec: Distributed Representation for Real-World Entities',
 		_1: {
 			ctor: '::',
 			_0: 'ml',
@@ -13215,9 +13218,9 @@ var _user$project$Site$buildBanner = function (model) {
 		});
 };
 var _user$project$Site$buildMain = function (model) {
-	var footer = _user$project$Site$buildFooter(model);
-	var content = _user$project$Site$buildContent(model);
-	var banner = _user$project$Site$buildBanner(model);
+	var footer = A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Site$buildFooter, model);
+	var content = A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Site$buildContent, model);
+	var banner = A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Site$buildBanner, model);
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -13240,8 +13243,8 @@ var _user$project$Site$buildMain = function (model) {
 		});
 };
 var _user$project$Site$buildPage = function (model) {
-	var m = _user$project$Site$buildMain(model);
-	var bg = _user$project$Site$buildBG(model);
+	var m = A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Site$buildMain, model);
+	var bg = A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Site$buildBG, model);
 	return A2(
 		_elm_lang$html$Html$div,
 		{
@@ -13263,13 +13266,13 @@ var _user$project$Site$view = function (model) {
 	var _p2 = model.currentPage;
 	switch (_p2.ctor) {
 		case 'Info':
-			return _user$project$Site$buildPage(model);
+			return A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Site$buildPage, model);
 		case 'Projects':
-			return _user$project$Site$buildPage(model);
+			return A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Site$buildPage, model);
 		case 'Contact':
-			return _user$project$Site$buildPage(model);
+			return A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Site$buildPage, model);
 		default:
-			return _user$project$Site$buildPage(model);
+			return A2(_elm_lang$html$Html_Lazy$lazy, _user$project$Site$buildPage, model);
 	}
 };
 var _user$project$Site$main = _elm_lang$html$Html$program(

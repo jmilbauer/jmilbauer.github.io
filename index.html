@@ -12260,7 +12260,42 @@ var _user$project$Style$navTextSeparator = _elm_lang$html$Html_Attributes$style(
 	});
 var _user$project$Content$footerText = {
 	ctor: '::',
-	_0: ' 2018 | Jeremiah Milbauer | CC-BY-SA ',
+	_0: A2(
+		_elm_lang$html$Html$span,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(' 2018 | Jeremiah Milbauer | '),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$a,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$style(
+							{
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'color', _1: '#dddddd'},
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$href('https://creativecommons.org/licenses/by-sa/2.0/'),
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('CC BY-SA'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(' '),
+					_1: {ctor: '[]'}
+				}
+			}
+		}),
 	_1: {ctor: '[]'}
 };
 var _user$project$Content$errorPageText = {
@@ -13080,12 +13115,7 @@ var _user$project$Site$buildFooter = function (model) {
 			_0: _user$project$Style$footerStyle,
 			_1: {ctor: '[]'}
 		},
-		A2(
-			_elm_lang$core$List$map,
-			function (l) {
-				return _elm_lang$html$Html$text(l);
-			},
-			_user$project$Content$footerText));
+		_user$project$Content$footerText);
 };
 var _user$project$Site$buildContent = _user$project$Site$simpleBody;
 var _user$project$Site$buildBGRight = function (model) {

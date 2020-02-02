@@ -1,0 +1,99 @@
+/*.scrollable {
+    height: 100vh;
+    overflow-y: auto;
+}*/
+
+}
+
+.textspan {
+    width: 500px;
+}
+
+.imgspan {
+    width: 100px;
+}
+
+h1 {
+    font-family: Overpass;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+h2 {
+    font-family: Overpass;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+h3 {
+    font-family: Overpass;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+p {
+    font-family: Overpass;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.pagesection {
+    margin-left: 20px;
+}
+
+.scenescape {
+    color: lavender;
+    background-color: black;
+}
+
+.foodie {
+    color: white;
+    background-color: darkorange;
+}
+
+.wikify {
+    color: steelblue;
+    background-color: white;
+}
+
+.ideology {
+    color: white;
+    background-color: darkslategrey;
+}
+
+.tutorials {
+    color: lime;
+    background-color: black;
+}
+
+.tutorials p {
+    color: white;
+}
+
+.tutorials a {
+    color: limegreen;
+}
+
+.homesteads {
+    background-color: white;
+    color: black;
+}
+
+.homesteads h1 {
+    color: forestgreen;
+}
+
+.homesteads h2 {
+    color: forestgreen;
+}
+
+.homesteads a {
+    color: limegreen;
+}
+
+.center-content {
+    text-align: left;
+    width: 50vw;
+    margin-left: 10vw;
+    margin-right: 40vw;
+}

@@ -16,10 +16,46 @@
     <h3>Phase 1: Goals</h3>
         <table class="pagesection">
             <tr>
-                <td><p>The goal of this project is to develop a representation of the "ideology" of communities. We begin with the notion that a given message produced in a particular social space is determined by two key factors: the topics, ideas, and values present in that text; and the ideology and norms of the venue of communication. My goal is to explore ways of modeling, learning, or extracting a representation of the venue using just text. Hopefully these representations will allow us to make judgments about which communities are similar in their ideological tendencies, and which communities are different. And, if we examine language data that was produced over time, we can describe how community ideology changes over time.</p></td>
+                <td>
+                    <img src="images/ideology_trend.png" style='width: 20vw'>
+                </td>
+                <td><p style='margin-left: 10px'>The goal of this project is to develop a representation of the "ideology" of communities. We begin with the notion that a given message produced in a particular social space is determined by two key factors: the topics, ideas, and values present in that text; and the ideology and norms of the venue of communication. My goal is to explore ways of modeling, learning, or extracting a representation of the venue using just text. Hopefully these representations will allow us to make judgments about which communities are similar in their ideological tendencies, and which communities are different. And, if we examine language data that was produced over time, we can describe how community ideology changes over time.</p></td>
             </tr>
         </table>
-    <h3>Phase 2: Architecture</h3>
+    <h3>Phase 2: Architectures</h3>
+        <table class="pagesection">
+            <tr>
+                <td>
+                    <p>
+                        The first architecture to experiment with for this project is a language-model based architecture. We fine-tune state of the art language models to each of the N communities. Then we compare each of the N language models with each of the N communities. We generate confusion matrices for tha language of each community, as well as joint perplexity scores. We then use these measures to generate reduced-dimensionality representations for the spatial "landscape" of community language.
+                    </p>
+                </td>
+                <td>
+                    <img src='images/ideology_perplexity.png' style='width: 20vw'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <img src='images/ideology_wordpred.png' style='width: 20vw'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <img src='images/ideology_commwordpred.png' style='width: 20vw'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <img src='images/ideology_score.png' style='width: 20vw'>
+                </td>
+            </tr>
+        </table>
     <h3>Phase 3: Perplexity Model</h3>
     <h3>Phase 4: Skipgram Models</h3>
 </div>

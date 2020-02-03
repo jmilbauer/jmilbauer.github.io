@@ -97,3 +97,18 @@ p {
     margin-left: 10vw;
     margin-right: 40vw;
 }
+
+.all-content {
+    text-align: left;
+    margin-left: 10vw;
+}
+
+.top-content {
+    width: 50vw;
+    margin-right: 40vw;
+}
+
+.main-content {
+    width: 80vw;
+    margin-right: 10vw;
+}

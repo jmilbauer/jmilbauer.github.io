@@ -12281,7 +12281,7 @@ var _user$project$Content$footerText = {
 		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html$text(' 2019 | Jeremiah Milbauer | '),
+			_0: _elm_lang$html$Html$text(' 2020 | Jeremiah Milbauer | '),
 			_1: {
 				ctor: '::',
 				_0: A2(
@@ -13262,20 +13262,17 @@ var _user$project$Content$projectPageText = {
 		}
 	}
 };
+var _user$project$Content$projectPageInfo = 'A list of past and present projects. Click on a tag to add as a filter below. Click again to remove the filter.';
 var _user$project$Content$infoPageText = {
 	ctor: '::',
-	_0: 'Hello there! I am an artificial intelligence researcher, software engineer, and occasional writer. I am currently working at Knowledge Lab on a variety of projects that combine machine learning with linguistics, sociology, and knowledge discovery.',
+	_0: 'Hello there! I am interested in artificial intelligence problems, and particularly the relationship between AI and Humanity. Right now I am focused on machine learning and natural language processing at the intersection of language, knowledge, and society — with an orientation toward building technology that is useful, accessible, and accountable.',
 	_1: {
 		ctor: '::',
-		_0: 'My primary interests are in exploring artificial intelligence from the perspective of language, knowledge, and society: specifically, building models and architectures that are inspired by, and capable of understanding, these phenomena. My current work focuses on creating representational techniques capable of discovering rich information about worldview and conceptual structure from text. And I am passionate about designing technology that is useful, accessible, and fair.',
+		_0: 'I have worked as a researcher (Carnegie Mellon, Knowledge Lab, UChicago), as a software engineer (Google X), as a tech policy monkey (Harvard), and on a startup called Foodie (YCombinator W19). Currently I am in grad school at the Language Technologies Institute in Carnegie Mellon University’s School of Computer Science.',
 		_1: {
 			ctor: '::',
-			_0: 'So far I have focused on machine learning, natural language processing, and software engineering — working variously with John Lafferty (on topic modeling and disambiguation), with John Goldsmith (on unsupervised morphological segmentation), as the machine learning lead for Simmer (we were accepted into YCombinator!), and as a software engineering intern at Google’s self-driving car project. My writing has been featured by the Berkman-Klein Center for Internet & Society at Harvard University, and The Economist.',
-			_1: {
-				ctor: '::',
-				_0: 'Outside of my professional work I enjoy playing music, making art, peacefully canoeing, solving crossword puzzles, and leading the occasional dungeons & dragons game.',
-				_1: {ctor: '[]'}
-			}
+			_0: 'Some fun stuff I have done: performed in an off-broadway play, briefly talked about climate change on The Economist’s podcast, spent three years studying Carillon with a modern master, cooked dinner on a wood burning stove in a cabin in Maine. And I am doing my best to make sure this list continues to grow!',
+			_1: {ctor: '[]'}
 		}
 	}
 };
@@ -13326,8 +13323,8 @@ var _user$project$Content$generateSimpleBody = function (text) {
 			A2(_elm_lang$core$List$map, buildParagraph, text));
 	}
 };
-var _user$project$Content$generateSectionedBody = F2(
-	function (model, sections) {
+var _user$project$Content$generateSectionedBody = F3(
+	function (model, infostring, sections) {
 		if (_user$project$Content$placeHolderOn) {
 			return _user$project$Content$placeholder;
 		} else {
@@ -13412,6 +13409,18 @@ var _user$project$Content$generateSectionedBody = F2(
 						}
 					});
 			};
+			var infoDiv = A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$Style$paragraphStyle,
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(infostring),
+					_1: {ctor: '[]'}
+				});
 			var activeTagSpans = A2(
 				_elm_lang$core$List$map,
 				function (t) {
@@ -13456,8 +13465,12 @@ var _user$project$Content$generateSectionedBody = F2(
 				},
 				{
 					ctor: '::',
-					_0: activeTagDiv,
-					_1: A2(_elm_lang$core$List$map, buildParagraph, activeSections)
+					_0: infoDiv,
+					_1: {
+						ctor: '::',
+						_0: activeTagDiv,
+						_1: A2(_elm_lang$core$List$map, buildParagraph, activeSections)
+					}
 				});
 		}
 	});
@@ -13469,7 +13482,7 @@ var _user$project$Content$getContent = function (m) {
 		case 'Writing':
 			return _user$project$Content$generateSimpleBody(_user$project$Content$writingPageText);
 		case 'Projects':
-			return A2(_user$project$Content$generateSectionedBody, m, _user$project$Content$projectPageText);
+			return A3(_user$project$Content$generateSectionedBody, m, _user$project$Content$projectPageInfo, _user$project$Content$projectPageText);
 		case 'Contact':
 			return _user$project$Content$generateSimpleBody(_user$project$Content$contactPageText);
 		default:

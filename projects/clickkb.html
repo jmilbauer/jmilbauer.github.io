@@ -184,7 +184,7 @@ int startX = -1;
 int startY = -1;
 //you can replace all of this logic.
 
-public void click(int x, int y) {
+void click(int x, int y) {
   String res = "";
   switch (pagenum) {
   case 0:
@@ -220,20 +220,24 @@ void mousePressed()
   //click(mouseX, mouseY);
 }
 
-void handleString(String res) {
-  if (res.equals("_")) {
+void handleString(String s) {
+  if (s.length() < 1) {
+    return;
+  }
+  char res = s.charAt(0);
+  if (res == '_') {
     currentTyped = currentTyped + " ";
-  } else if (res.equals("<") && currentTyped.length() > 0) {
+  } else if (res == '<' && currentTyped.length() > 0) {
     currentTyped = currentTyped.substring(0, currentTyped.length()-1);
-  } else if (res.equals("1")) {
+  } else if (res == '1') {
     pagenum = 1;
-  } else if (res.equals("2")) {
+  } else if (res == '2') {
     pagenum = 2;
-  } else if (res.equals("3")) {
+  } else if (res == '3') {
     pagenum = 3;
-  } else if (res.equals(" ")) {
+  } else if (res == ' ') {
     pagenum = 0;
-  } else if (!res.equals("<")) {
+  } else if (res != '<') {
     currentTyped += res;
     pagenum = 0;
   }

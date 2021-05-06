@@ -5,8 +5,6 @@
 </head>
 <body>
 
-<h1>Bakeoff 3</h1>
-
 <script type="text/processing" data-processing-target="mycanvas">
 
 final int DPIofYourDeviceScreen = 324; //you will need to measure or look up the DPI or PPI of your device/browser to make sure you get the right scale!!
@@ -183,8 +181,9 @@ boolean didMouseClick(float x, float y, float w, float h) //simple function to d
 int startX = -1;
 int startY = -1;
 //you can replace all of this logic.
-
+int clickcount = 0;
 void click(int x, int y) {
+  println(clickcount + " clickstart");
   String res = "";
   switch (pagenum) {
   case 0:
@@ -213,6 +212,8 @@ void click(int x, int y) {
   {
     nextTrial(); //if so, advance to next trial
   }
+  println(clickcount + " clickend");
+  clickcount += 1;
 }
 
 void mousePressed()
@@ -224,20 +225,20 @@ void handleString(String s) {
   if (s.length() < 1) {
     return;
   }
-  char res = s.charAt(0);
-  if (res == '_') {
+  String res = s.substring(0,1);
+  if (res == "_") {
     currentTyped = currentTyped + " ";
-  } else if (res == '<' && currentTyped.length() > 0) {
+  } else if (res.equals("<") && currentTyped.length() > 0) {
     currentTyped = currentTyped.substring(0, currentTyped.length()-1);
-  } else if (res == '1') {
+  } else if (res.equals("1")) {
     pagenum = 1;
-  } else if (res == '2') {
+  } else if (res.equals("2")) {
     pagenum = 2;
-  } else if (res == '3') {
+  } else if (res.equals("3")) {
     pagenum = 3;
-  } else if (res == ' ') {
+  } else if (res.equals(" ")) {
     pagenum = 0;
-  } else if (res != '<') {
+  } else if (!res.equals("<")) {
     currentTyped += res;
     pagenum = 0;
   }
@@ -881,7 +882,6 @@ class Keygrid {
     int charIdx = 0;
     for (int i = 0; i < nHigh; i++) {
       for (int j = 0; j < nWide; j++) {
-        println(i,j, charIdx);
         float xpos = this.x + (j * cellWidth);
         float ypos = this.y + (i * cellHeight);
         if (xpos < x && x < xpos+cellWidth && ypos < y && y < ypos+cellHeight) {
@@ -890,7 +890,6 @@ class Keygrid {
         charIdx += 1;
       }
     }
-    println("nores");
     return "";
   }
 

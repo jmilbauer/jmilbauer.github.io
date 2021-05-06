@@ -174,8 +174,7 @@ void draw()
   }
 }
 
-boolean didMouse
-float x, float y, float w, float h) //simple function to do hit testing
+boolean didMouseClick(float x, float y, float w, float h) //simple function to do hit testing
 {
   return (mouseX > x && mouseX<x+w && mouseY>y && mouseY<y+h); //check to see if it is in button bounds
 }
@@ -185,7 +184,7 @@ int startX = -1;
 int startY = -1;
 //you can replace all of this logic.
 
-void click(int x, int y) {
+public void click(int x, int y) {
   String res = "";
   switch (pagenum) {
   case 0:

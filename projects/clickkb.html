@@ -174,7 +174,8 @@ void draw()
   }
 }
 
-boolean didMouseClick(float x, float y, float w, float h) //simple function to do hit testing
+boolean didMouse
+float x, float y, float w, float h) //simple function to do hit testing
 {
   return (mouseX > x && mouseX<x+w && mouseY>y && mouseY<y+h); //check to see if it is in button bounds
 }
@@ -183,26 +184,26 @@ boolean didMouseClick(float x, float y, float w, float h) //simple function to d
 int startX = -1;
 int startY = -1;
 //you can replace all of this logic.
-void mousePressed()
-{
+
+void click(int x, int y) {
   String res = "";
   switch (pagenum) {
   case 0:
-    res += nav.getResult(mouseX, mouseY);
-    res += space.getResult(mouseX, mouseY);
-    res += del.getResult(mouseX, mouseY);
+    res += nav.getResult(x, y);
+    res += space.getResult(x, y);
+    res += del.getResult(x, y);
     break;
   case 1:
-    res += sect1.getResult(mouseX, mouseY);
-    res += home.getResult(mouseX, mouseY);
+    res += sect1.getResult(x, y);
+    res += home.getResult(x, y);
     break;
   case 2:
-    res += sect2.getResult(mouseX, mouseY);
-    res += home.getResult(mouseX, mouseY);
+    res += sect2.getResult(x, y);
+    res += home.getResult(x, y);
     break;
   case 3:
-    res += sect3.getResult(mouseX, mouseY);
-    res += home.getResult(mouseX, mouseY);
+    res += sect3.getResult(x, y);
+    res += home.getResult(x, y);
     break;
   }
 
@@ -213,6 +214,11 @@ void mousePressed()
   {
     nextTrial(); //if so, advance to next trial
   }
+}
+
+void mousePressed()
+{
+  //click(mouseX, mouseY);
 }
 
 void handleString(String res) {
@@ -235,6 +241,7 @@ void handleString(String res) {
 }
 
 void mouseReleased() {
+  click(mouseX, mouseY);
 }
 
 
@@ -794,7 +801,7 @@ String[] phrases ={"my watch fell in the water",
   "everyone wants to win the lottery",
   "the picket line gives me the chills"};
 
-public Keygrid initFromArrays(float x, float y, float cellWidth, float cellHeight, int nw, int nh, String[] fill, String[] opc) {
+  public Keygrid initFromArrays(float x, float y, float cellWidth, float cellHeight, int nw, int nh, String[] fill, String[] opc) {
   return new Keygrid(x, y, cellWidth, cellHeight, nw, nh, fill, opc);
 }
 
@@ -804,6 +811,7 @@ public Keygrid initFromString(float x, float y, float cellWidth, float cellHeigh
 
 public Keygrid initFromStrings(float x, float y, float cellWidth, float cellHeight, int nw, int nh, String fill, String opc) {
     int stride = fill.length() / (nw * nh);
+    int opstride = opc.length() / (nw * nh);
     String[] fillarr = new String[nw * nh];
     String[] oparr = new String[nw * nh];
 
@@ -815,8 +823,8 @@ public Keygrid initFromStrings(float x, float y, float cellWidth, float cellHeig
     }
 
     stridx = 0;
-    for (int i = 0; i < oparr.length(); i += stride) {
-        String op = opc.substring(i, i+stride);
+    for (int i = 0; i < opc.length(); i += opstride ) {
+        String op = opc.substring(i, i+opstride);
         oparr[stridx] = op;
         stridx++;
     }
@@ -886,7 +894,6 @@ class Keygrid {
   public void iter() {
   }
 }
-
 
 
 

@@ -7511,6 +7511,7 @@ module.exports = (function commonFunctions(undef) {
  * Touch and Mouse event handling
  */
 module.exports = function withTouch(p, curElement, attachEventHandler, detachEventHandlersByType, document, PConstants, undef) {
+  window.console.log("Setting up withTouch");
 
   // List of mouse event types
   var mouseTypes = ['mouseout','mousemove','mousedown','mouseup','DOMMouseScroll','mousewheel','touchstart'];
@@ -7685,6 +7686,7 @@ module.exports = function withTouch(p, curElement, attachEventHandler, detachEve
           p.mouseReleased();
         }
       });
+
     }
   });
 
@@ -9754,7 +9756,6 @@ module.exports = function setupParser(Processing, options) {
     extend.withCommonFunctions(p);
     extend.withMath(p);
     extend.withProxyFunctions(p, removeFirstArgument);
-    extend.withTouch(p, curElement, attachEventHandler, detachEventHandlersByType, document, PConstants);
 
     // custom functions and properties are added here
     if(aFunctions) {
@@ -9815,6 +9816,8 @@ module.exports = function setupParser(Processing, options) {
     p.keyTyped        = noop;
     p.draw            = undef;
     p.setup           = undef;
+
+    extend.withTouch(p, curElement, attachEventHandler, detachEventHandlersByType, document, PConstants);
 
     // Remapped vars
     p.__mousePressed  = false;

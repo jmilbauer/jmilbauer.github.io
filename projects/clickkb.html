@@ -220,7 +220,8 @@ void click(int x, int y) {
 
 void mousePressed()
 {
-  //click(mouseX, mouseY);
+    println("mousepressed");
+  click(mouseX, mouseY);
 }
 
 void handleString(String s) {
@@ -247,7 +248,7 @@ void handleString(String s) {
 }
 
 void mouseReleased() {
-  click(mouseX, mouseY);
+    println("released");
 }
 
 

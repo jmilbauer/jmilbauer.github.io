@@ -7615,8 +7615,9 @@ module.exports = function withTouch(p, curElement, attachEventHandler, detachEve
     // If there are any native touch events defined in the sketch, connect all of them
     // Otherwise, connect all of the emulated mouse events
     window.console.log("Trying to add touch handlers")
-    if (p.touchStart !== undef || p.touchMove !== undef ||
+    if (!p.hasAddedTouch && p.touchStart !== undef || p.touchMove !== undef ||
         p.touchEnd !== undef || p.touchCancel !== undef) {
+        window.console.log("Adding touch handlers: native");
       attachEventHandler(curElement, "touchstart", function(t) {
         if (p.touchStart !== undef) {
           t = addTouchEventOffset(t);
@@ -7648,10 +7649,10 @@ module.exports = function withTouch(p, curElement, attachEventHandler, detachEve
 
     } else if (!p.hasAddedTouch) {
         p.hasAddedTouch = true;
-        window.console.log("Adding touch handlers");
+        window.console.log("Adding touch handlers: emulated");
       // Emulated touch start/mouse down event
       attachEventHandler(curElement, "touchstart", function(e) {
-        if (!p.__mousePressed) {
+          window.console.log("touchdown");
           updateMousePosition(curElement, e.touches[0]);
   
           p.__mousePressed = true;
@@ -7661,7 +7662,6 @@ module.exports = function withTouch(p, curElement, attachEventHandler, detachEve
           if (typeof p.mousePressed === "function") {
             p.mousePressed();
           }
-        }
       });
 
       // Emulated touch move/mouse move event
@@ -7772,38 +7772,42 @@ module.exports = function withTouch(p, curElement, attachEventHandler, detachEve
    * Mouse pressed or drag
    */
   attachEventHandler(curElement, "mousedown", function(e) {
-    p.__mousePressed = true;
-    p.mouseDragging = false;
-    switch (e.which) {
-    case 1:
-      p.mouseButton = PConstants.LEFT;
-      break;
-    case 2:
-      p.mouseButton = PConstants.CENTER;
-      break;
-    case 3:
-      p.mouseButton = PConstants.RIGHT;
-      break;
-    }
+    if (!p.hasAddedTouch) {
+        p.__mousePressed = true;
+        p.mouseDragging = false;
+        switch (e.which) {
+        case 1:
+          p.mouseButton = PConstants.LEFT;
+          break;
+        case 2:
+          p.mouseButton = PConstants.CENTER;
+          break;
+        case 3:
+          p.mouseButton = PConstants.RIGHT;
+          break;
+        }
 
-    window.console.log("Attempting mousedown");
-    if (typeof p.mousePressed === "function" && !p.__mousePressed) {
-      p.mousePressed();
-    }
+      window.console.log("mousedown");
+      if (typeof p.mousePressed === "function") {
+        p.mousePressed();
+      }
+    }    
   });
 
   /**
    * Mouse clicked or released
    */
   attachEventHandler(curElement, "mouseup", function(e) {
-    p.__mousePressed = false;
+    if (!p.hasAddedTouch) {
+        p.__mousePressed = false;
 
-    if (typeof p.mouseClicked === "function" && !p.mouseDragging) {
-      p.mouseClicked();
-    }
+        if (typeof p.mouseClicked === "function" && !p.mouseDragging) {
+          p.mouseClicked();
+        }
 
-    if (typeof p.mouseReleased === "function") {
-      p.mouseReleased();
+        if (typeof p.mouseReleased === "function") {
+          p.mouseReleased();
+        }
     }
   });
 

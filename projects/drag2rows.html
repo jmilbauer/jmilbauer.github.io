@@ -9,7 +9,7 @@
 
 <script type="text/processing" data-processing-target="mycanvas">
 
-final int DPIofYourDeviceScreen = 94; //you will need to measure or look up the DPI or PPI of your device/browser to make sure you get the right scale!!
+final int DPIofYourDeviceScreen = 324; //you will need to measure or look up the DPI or PPI of your device/browser to make sure you get the right scale!!
 final float sizeOfInputArea = DPIofYourDeviceScreen*1; //aka, 1.0 inches square!
 
 int totalTrialNum = 2; //the total number of phrases to be tested - set this low for testing. Might be ~10 for the real bakeoff!
@@ -338,7 +338,7 @@ int computeLevenshteinDistance(String phrase1, String phrase2) //this computers 
   for (int i = 0; i <= phrase1.length(); i++)
     distance[i][0] = i;
   for (int j = 1; j <= phrase2.length(); j++)
-    distance[0][j] = j;
+    distance[0][j] = j; 
 
   for (int i = 1; i <= phrase1.length(); i++)
     for (int j = 1; j <= phrase2.length(); j++)

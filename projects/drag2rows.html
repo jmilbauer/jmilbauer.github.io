@@ -195,12 +195,10 @@ void draw()
 void drawBorder() {
   fill(255);
   noStroke();
-  float b = sizeOfInputArea/2;
-  float s = sizeOfInputArea*2;
-  rect(regionX-b, regionY-b, b, s);
-  rect(regionX-b, regionY-b, s, b);
-  rect(regionX+sizeOfInputArea+b, regionY+sizeOfInputArea+b, -b, -s);
-  rect(regionX+sizeOfInputArea+b, regionY+sizeOfInputArea+b, -s, -b);
+  float b = sizeOfInputArea/3;
+  float s = sizeOfInputArea;
+  rect(regionX-b, regionY, b, s);
+  rect(regionX, regionY, b, s);
   fill(0,0);
   stroke(0);
   strokeWeight(1);

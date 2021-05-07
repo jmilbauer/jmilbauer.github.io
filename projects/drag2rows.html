@@ -214,6 +214,12 @@ boolean didMouseClick(float x, float y, float w, float h) //simple function to d
 
 
 void click(int x, int y) {
+    if (x < regionX || x > regionX + sizeOfInputArea) {
+        return;
+    }
+    if (y < regionY || y > regionY + sizeOfInputArea) {
+        return;
+    }
   String res = spb.getResult(x, y) +
     del.getResult(x, y);
   

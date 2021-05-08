@@ -124,12 +124,14 @@ void drawCurrentInput() {
 
   textAlign(LEFT, TOP);
   textSize(insideText);
-  fill(40,40,140);
   String outstring = currentTyped + "|";
   while (textWidth(outstring) > sizeOfInputArea - 4*b) {
     outstring = outstring.substring(1, outstring.length());
   }
-  text(outstring, regionX + 2*b, regionY + 2*b);
+  fill(40,40,140);
+  text(outstring.substring(0, outstring.length()-1), regionX + 2*b, regionY + 2*b);
+  fill(90);
+  text(outstring.substring(outstring.length()-1), regionX + 2*b + textWidth(outstring.substring(0, outstring.length()-1)), regionY + 2*b);
 }
 
 void drawTrialInfo() {
@@ -488,7 +490,7 @@ class Button {
 
   private void flash() {
     this.flashing = true;
-    this.flashEnd = millis() + 70;
+    this.flashEnd = millis() + 100;
   }
 }
 class Suggestion {
@@ -534,7 +536,6 @@ class Suggestion {
   }
 
 }
-
 //=========SHOULD NOT NEED TO TOUCH THIS DATA==============
 String[] phrases ={"my watch fell in the water",
   "prevailing wind from the east",
@@ -3559,7 +3560,6 @@ String[] phrases ={"my watch fell in the water",
 "branch,brach,branck",
 "kinds,kins"
 };
-
 boolean didMouseClick(float x, float y, float w, float h) {
   return didSomethingClick(mouseX, mouseY, x, y, w, h);
 }

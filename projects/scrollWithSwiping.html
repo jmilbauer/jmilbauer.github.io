@@ -269,9 +269,9 @@ void mouseReleased() {
 
   stableDeltaX = activeDeltaX;
 
-  if (didSwipeUp() || didSwipeRight()) {
-    handleString(" ");
-  } else if (didSwipeDown() || didSwipeLeft()) {
+  if (didSwipeRight()) {
+    handleString(model.getResultAlways());
+  } else if (didSwipeLeft()) {
     handleString("<");
   } else if (!scrolling) {
     handleString(getKeyPress(mouseX, mouseY));
@@ -295,6 +295,9 @@ void handleString(String s) {
 
 String getKeyPress(int x, int y) {
   String res = "";
+  if (regionX < x && x < regionX + sizeOfInputArea && regionY < y && y < regionY + keyW) {
+    return " ";
+  }
   for (Button b : tops) {
     res += b.getResult(x, y);
     if (!res.equals("")) {
@@ -316,7 +319,6 @@ String getKeyPress(int x, int y) {
       return res;
     }
   }
-  res += model.getResult(x, y);
   return res;
 }
 
@@ -589,6 +591,10 @@ class Suggestion {
       }
     }
     return "";
+  }
+
+  public String getResultAlways() {
+    return this.continuation;
   }
 }
 

@@ -1,0 +1,292 @@
+/*.scrollable {
+    height: 100vh;
+    overflow-y: auto;
+}*/
+
+}
+
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+@media all and (max-width: 650px) {
+    .disappear { display: none; }
+}
+
+.standard {
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.textspan {
+    width: 500px;
+}
+
+.imgspan {
+    width: 100px;
+}
+
+h1 {
+    font-family: "Fugaz One";
+    font-weight: 400;
+    font-size: 48px;
+    margin-bottom: 4px;
+    margin-top: 0px;
+    padding-top: 20px;
+}
+
+h4 {
+  font-family: Overpass;
+  font-weight: 400;
+  font-size: 24px;
+  margin-top: 100px;
+}
+
+p {
+    font-family: Overpass;
+    font-size: 18px;
+    font-weight: 200;
+    margin-top: 0px;
+    line-height: 1.5;
+}
+
+#bgbox {
+  background-color: rgb(255,255,255) ;
+  box-shadow: rgb(255,255,255)  0px 15px 15px 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.banner div {
+  z-index: 999;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  position: sticky;
+  top: 0px;
+}
+
+.footer {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.profile {
+  vertical-align: top;
+}
+
+.profile div {
+  margin-left: 50px;
+}
+
+.profile p {
+  font-size:16px;
+  margin: 0px;
+}
+
+.profile img {
+  width: inherit;
+  border: 3px solid black;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  border: none;
+  transition: border .3s, color .2s;
+  /* border-bottom: 1px solid steelblue; */
+}
+
+.content a {
+  color: steelblue;
+  text-decoration: none;
+  border-bottom: 1px solid steelblue;
+}
+
+.content a:hover {
+  /* color: green; */
+  border-bottom: 2px solid steelblue;
+}
+
+.navbar {
+  font-family: Overpass;
+  font-weight: 200;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.navbar a:hover {
+  border-bottom: 3px solid steelblue;
+  color: steelblue;
+}
+
+.project {
+  font-family: Overpass;
+  font-weight: 100px;
+}
+
+.project h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.project h3 {
+  font-size: 16px;
+  font-weight: 200;
+  margin: 0px;
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.project p {
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 1.2;
+
+}
+
+.project img {
+  max-height: 150px;
+  border: 3px solid black;
+  margin-right: 20px;
+  transition: filter .3s;
+  /* filter: blur(2px) grayscale(70%); */
+}
+
+.project img:hover {
+  filter: drop-shadow(0 0 0.75rem steelblue);
+  /* filter: grayscale(0%) blur(0px); */
+}
+
+
+
+
+
+
+/*table, th, td, tr {
+    border: 1px solid black;
+}*/
+
+.pagesection {
+    margin-left: 20px;
+}
+
+.scenescape {
+    color: lavender;
+    background-color: black;
+}
+
+.foodie {
+    color: white;
+    background-color: darkorange;
+}
+
+.wikify {
+    color: steelblue;
+    background-color: white;
+}
+
+.ideology {
+    color: white;
+    background-color: darkslategrey;
+}
+
+.tutorials {
+    color: lime;
+    background-color: black;
+}
+
+.tutorials p {
+    color: white;
+}
+
+.tutorials a {
+    color: limegreen;
+}
+
+.homesteads {
+    background-color: white;
+    color: black;
+}
+
+.homesteads h1 {
+    color: forestgreen;
+}
+
+.homesteads h2 {
+    color: forestgreen;
+}
+
+.homesteads a {
+    color: limegreen;
+}
+
+.center-content {
+    text-align: left;
+    width: 80vw;
+    max-width: 1100px;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+/* .all-content {
+    text-align: left;
+    margin-left: 10vw;
+}
+
+.top-content {
+    width: 50vw;
+    margin-right: 40vw;
+}
+
+.main-content {
+    width: 80vw;
+    margin-right: 10vw;
+} */
+
+
+
+
+.btn {
+  position: relative;
+
+  display: block;
+  margin: 30px auto;
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 2px solid darkred;
+  outline: none;
+  border-radius: 10px;
+  /* box-shadow: 0 1px 4px rgba(0, 0, 0, .6); */
+
+  background-color: white;
+  color: darkred;
+
+  transition: background-color .3s;
+}
+
+.btn:hover {
+  background-color: darkred;
+  color: white;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn span {
+  display: block;
+  padding: 12px 24px;
+}

@@ -163,7 +163,7 @@ p {
   /* filter: blur(2px) grayscale(70%); */
 }
 
-.project img:hover {
+.project a img:hover {
   filter: drop-shadow(0 0 0.75rem steelblue);
   /* filter: grayscale(0%) blur(0px); */
 }

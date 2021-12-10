@@ -37,6 +37,14 @@ h1 {
     padding-top: 20px;
 }
 
+h5 {
+  font-family: "Fugaz One";
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
 h4 {
   font-family: Overpass;
   font-weight: 400;

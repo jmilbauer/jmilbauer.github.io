@@ -13,7 +13,7 @@
         <h1>Simmer - an app for foodies</h2>
         <h2>There's a huge problem with the current state of food discovery platforms like Yelp and Google Maps — they rate restaurants, not dishes. If I want the best burger in town, what can I do? Simmer solves this problem by using machine learning to extract dish-level preference information and allow users to search for great food at a more granular level. Check out <a href="https://usesimmer.com">the app</a>!</h2>
         <h2>Simmer (under the name "Foodie") was accepted to YCombinator Winter 2019, one of the world's top startup accelerators.</h2>
-        <h2>I left Simmer in Spring 2019 to focus on my research work.</h2>
+        <h2>I left Simmer in Spring 2019 to focus on other work.</h2>
         <h2>>>></h2>
     </div>
     <div class='main-content'>
@@ -32,7 +32,7 @@
             <table>
                 <tr>
                     <td>
-                        <p>I joined Foodie as the first engineer, working specifically on the machine learning pipeline. To build our "sentiment engine," we first collected large amounts of data from multiple online sources. We broke each review down into a sentence, and then used named entity recognition techniques — enhanced by entity lists we scraped from restaurant menus. We then used relatively simple sentiment analysis for each sentence, assigning sentiments to the corresponding dishes for each menu. Most of my work was done to improve our entity recognition, and the efficiency of data storage throughout the pipeline. I also built and managed a small team of external contractors to help us label data.<p>
+                        <p>I joined Foodie as the first engineer, working specifically on the machine learning pipeline. To build our "sentiment engine," we first collected large amounts of data from multiple online sources. We broke each review down into sentences, and then used named entity recognition techniques, enhanced by entity lists we scraped from restaurant menus (called a gazetteer). We then ran a sentiment classifier on each sentence, assigning scores to the corresponding dishes on each menu. Most of my work was done to improve our entity recognition (I was able to improve recall 3x without much of a hit to precision), and the efficiency of data storage throughout the pipeline. I also built and managed a small team of external contractors to help us label data and parse menu PDFs.<p>
                     </td>
                     <td>
                         <img src='images/foodie_results.png' alt='Search Results for Burgers' style="width: 20vw;">
@@ -48,7 +48,7 @@
                         <img src="images/foodie_analytics.png" alt="Foodie Analytics" width="300">
                     </td>
                     <td>
-                        <p style='margin-left: 10px;'>Understanding the potential usefulness of our data to both restaurants and customers, I built a new product that helped restaurants identify what their "hit" and "miss" dishes were. This analytics system was built as a layer on top of our existing sentiment pipeline, and packaged as an easy-to-digest product for restaurants.<p>
+                        <p style='margin-left: 10px;'>Understanding the potential usefulness of our data to both restaurants and customers, I built a new product that helped restaurants identify what their "hit" and "miss" dishes were. This analytics system was built as a layer on top of our existing sentiment pipeline, and packaged as an easy-to-digest report for restaurants.<p>
                     </td>
                 </tr>
             </table>

@@ -38,6 +38,12 @@ h1 {
     padding-top: 20px;
 }
 
+.content h2 {
+  font-family: "Fugaz One";
+  font-weight 400;
+  font-size: 24px;
+}
+
 h5 {
   font-family: "Fugaz One";
   font-size: 24px;
@@ -54,6 +60,14 @@ h4 {
 }
 
 p {
+    font-family: Overpass;
+    font-size: 18px;
+    font-weight: 200;
+    margin-top: 0px;
+    line-height: 1.5;
+}
+
+ul {
     font-family: Overpass;
     font-size: 18px;
     font-weight: 200;

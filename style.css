@@ -97,6 +97,7 @@ ul {
 
 .profile {
   vertical-align: top;
+  padding-bottom: 50px;
 }
 
 .profile div {
@@ -160,6 +161,7 @@ ul {
 }
 
 .project h2 {
+  font-family: Overpass;
   font-size: 20px;
   font-weight: 400;
   margin-top: 0px;

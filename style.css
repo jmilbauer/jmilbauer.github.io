@@ -109,10 +109,15 @@ ul {
   margin: 0px;
 }
 
-.profile img {
+.portrait img {
   border: 3px solid black;
   width: 200px;
   border-radius: 10%;
+}
+
+.contact img {
+  height: 20px;
+  vertical-align: top;
 }
 
 .flex-container {

@@ -97,7 +97,7 @@ ul {
 
 .profile {
   vertical-align: top;
-  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .profile div {
@@ -110,8 +110,9 @@ ul {
 }
 
 .profile img {
-  width: inherit;
   border: 3px solid black;
+  width: 200px;
+  border-radius: 10%;
 }
 
 .flex-container {
@@ -119,6 +120,17 @@ ul {
   flex-wrap: wrap;
   flex-direction: row;
   align-items: flex-start;
+}
+
+.index-flex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 890px;
+  flex-wrap: wrap-reverse;
+  align-items: flex-end;
 }
 
 .navbar a {

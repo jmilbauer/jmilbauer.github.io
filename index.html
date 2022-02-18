@@ -1,3 +1,9 @@
+<!--
+Made with love, completely from scratch, in HTML and CSS
+by Jeremiah Milbauer jeremiah.milbauer.info
+License: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/
+-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +15,25 @@
 <!-- <link href="https://fonts.googleapis.com/css2?family=Elsie:wght@900&family=Palette+Mosaic&family=Rock+3D&family=Shizuru&display=swap" rel="stylesheet"> -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Jeremiah Milbauer :: Welcome</title>
+
+    <audio id="easter_egg" hidden src="hxh.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+      let playing = false;
+      let audio = document.getElementById("easter_egg");
+      audio.volume = 0.1;
+      function play() {
+        if (playing) {
+          playing = false;
+          audio.pause();
+        } else {
+          playing = true;
+          audio.play();
+        }
+      }
+    </script>
+
 </head>
 <body class="standard">
 
@@ -34,7 +59,7 @@
           <p>Hello there!</p>
           <p>
             I use computers to study natural language as a medium in which ideas are both encoded and socially propagated.
-            I hope to leverage the resulting insights to create AI systems that enable people to explore knowledge and concepts – and even make new discoveries.
+            I hope to leverage the resulting insights to create guidable AI systems that enable people to explore knowledge and concepts – and even make new discoveries.
           </p>
           <p>
             Currently, I am a graduate student at <a href="https://www.lti.cs.cmu.edu/">Carnegie Mellon University</a>
@@ -61,7 +86,7 @@
 
         <div class="profile" style="width: 210px">
             <span class="portrait">
-              <img src="images/face.jpg" onmouseover="this.src='images/fancy.jpg'" onmouseout="this.src='images/face.jpg'">
+              <img src="images/face.jpg" onmouseover="this.src='images/fancy.jpg'" onmouseout="this.src='images/face.jpg'" onclick="play()">
             </span>
             <span class="content contact">
               <p><b>Email:</b> <img src="images/email.jpg"></p>

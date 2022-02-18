@@ -1,3 +1,8 @@
+/* Made with love, completely from scratch, in HTML and CSS
+* by Jeremiah Milbauer jeremiah.milbauer.info
+* License: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/
+*/
+
 /*.scrollable {
     height: 100vh;
     overflow-y: auto;
@@ -204,12 +209,12 @@ ul {
   max-height: 150px;
   border: 3px solid black;
   margin-right: 20px;
-  transition: filter .3s;
+  transition: filter .1s;
   /* filter: blur(2px) grayscale(70%); */
 }
 
 .project a img:hover {
-  filter: drop-shadow(0 0 0.75rem steelblue);
+  filter: drop-shadow(0 0 .5rem steelblue);
   /* filter: grayscale(0%) blur(0px); */
 }
 

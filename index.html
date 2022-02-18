@@ -22,14 +22,17 @@ License: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/
     <script>
       let playing = false;
       let audio = document.getElementById("easter_egg");
+      let pic = document.getElementById("pic");
       audio.volume = 0.1;
       function play() {
         if (playing) {
           playing = false;
           audio.pause();
+          pic.src='images/face.jpg'
         } else {
           playing = true;
           audio.play();
+          pic.src='images/fancy.jpg'
         }
       }
     </script>
@@ -86,7 +89,7 @@ License: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/
 
         <div class="profile" style="width: 210px">
             <span class="portrait">
-              <img src="images/face.jpg" onmouseover="this.src='images/fancy.jpg'" onmouseout="this.src='images/face.jpg'" onclick="play()">
+              <img id="pic" src="images/face.jpg" onmouseover="this.src='images/fancy.jpg'" onmouseout="if (!playing) { this.src='images/face.jpg';}" onclick="play()">
             </span>
             <span class="content contact">
               <p><b>Email:</b> <img src="images/email.jpg"></p>

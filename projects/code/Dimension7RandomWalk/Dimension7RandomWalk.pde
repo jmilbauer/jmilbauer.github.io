@@ -16,7 +16,7 @@ void setup()
  red=127;
  green=127;
  blue=127;
- size(256,256); 
+ size(512,512); 
  x = xSIDE/2;
  y = ySIDE/2;
  frameRate(60);

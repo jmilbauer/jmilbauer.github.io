@@ -42,7 +42,7 @@ function drawInstructions() {
   text("CLICK and HOLD to draw a moon.",20, 40);
   text("Press ENTER to reset.",20, 60);
   text("Press DELETE or BACKSPACE to remove the last element.",20,80);
-  text("Press 'c' for Cherry Blossom Mode.", 20, 100);
+  text("Press 'c' to toggle Cherry Blossom mode.", 20, 100);
 }
 
 function drawArt() {

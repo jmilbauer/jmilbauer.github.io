@@ -3,7 +3,7 @@ var roots = [];
 var drawstack = [];
 var running = false;
 var spacedown = false;
-var cherryMode = false;
+var cherryMode = true;
 const w = window.innerWidth;
 const h = window.innerHeight-30;
 
@@ -42,7 +42,7 @@ function drawInstructions() {
   text("CLICK and HOLD to draw a moon.",20, 40);
   text("Press ENTER to reset.",20, 60);
   text("Press DELETE or BACKSPACE to remove the last element.",20,80);
-  text("Press 'c' to toggle Cherry Blossom mode.", 20, 100);
+  text("Press 'c' to toggle Cherry Blossom / Colorful mode.", 20, 100);
 }
 
 function drawArt() {

@@ -8,7 +8,7 @@ const w = window.innerWidth;
 const h = window.innerHeight-30;
 
 const tree_width = h/20;
-const growspeed = h/600;
+const growspeed = h/500;
 
 function setup() {
   createCanvas(w*3, h);
@@ -19,7 +19,7 @@ function setup() {
 function startover() {
   background(0);
   roots = [];
-  branches = [];
+  bubbles = [];
   drawstack = [];
 }
 
@@ -30,22 +30,19 @@ function draw() {
     background(0);
   }
 
-  if (running) {
-    drawArt();
-  } else {
-    drawInstructions();
-  }
+  drawInstructions();
+  drawArt();
 }
 
 function drawInstructions() {
-  textSize(18);
+  textSize(14);
   strokeWeight(0);
-  fill(255);
-  text("Press SPACE to draw a tree.",20,30);
-  text("Click and hold to draw a moon.",20, 60);
-  text("Press ENTER to start or reset.",20, 90);
-  text("Press DELETE or BACKSPACE to remove the last element.",20,120);
-  text("Press 'c' for Cherry Blossom Mode.", 20, 150);
+  fill(200);
+  text("Press SPACE to draw a tree.",20,20);
+  text("CLICK and HOLD to draw a moon.",20, 40);
+  text("Press ENTER to reset.",20, 60);
+  text("Press DELETE or BACKSPACE to remove the last element.",20,80);
+  text("Press 'c' for Cherry Blossom Mode.", 20, 100);
 }
 
 function drawArt() {
@@ -84,11 +81,16 @@ function keyPressed() {
   if (key == ' ') {
     spacedown = true;
   }
-  // if (keyCode == DELETE || keyCode == BACKSPACE) {
-  //   if (drawstack.length != 0) {
-  //     if (drawstack[drawstack.length - 1])
-  //   }
-  // }
+  if (keyCode == DELETE || keyCode == BACKSPACE) {
+    if (drawstack.length != 0) {
+      if (drawstack[drawstack.length - 1]) {
+        bubbles.pop();
+      } else {
+        roots.pop();
+      }
+      drawstack.pop();
+    }
+  }
   if (key == 'c') {
     cherryMode = !cherryMode;
     if (cherryMode) {
@@ -103,6 +105,7 @@ function keyReleased() {
   if (key == ' ') {
     spacedown = false;
     roots.push(new Branch(mouseX-tree_width/2, 5*height/6, tree_width, radians(0), color(random(0,255), random(0,255), random(0,255))));
+    drawstack.push(false);
   }
 }
 

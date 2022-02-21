@@ -4,11 +4,14 @@ var drawstack = [];
 var running = false;
 var spacedown = false;
 var cherryMode = false;
+const w = window.innerWidth;
+const h = window.innerHeight-30;
 
-var tree_width = 30;
+const tree_width = h/20;
+const growspeed = h/600;
 
 function setup() {
-  createCanvas(1200, 600);
+  createCanvas(w*3, h);
   running = false;
   startover();
 }
@@ -88,7 +91,11 @@ function keyPressed() {
   // }
   if (key == 'c') {
     cherryMode = !cherryMode;
-    print("CHERRY: " + cherryMode);
+    if (cherryMode) {
+      document.getElementById('bg').style.background = '#000032';
+    } else {
+      document.getElementById('bg').style.background = 'black';
+    }
   }
 }
 
@@ -114,7 +121,7 @@ class Bubble {
   }
 
   grow() {
-    this.r += 1;
+    this.r += growspeed;
   }
 
   display() {

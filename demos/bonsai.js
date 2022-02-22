@@ -8,12 +8,13 @@ const w = window.innerWidth;
 const h = window.innerHeight-30;
 
 const tree_width = h/20;
-const growspeed = h/500;
+const growspeed = h/300;
 
 function setup() {
   createCanvas(w*3, h);
   running = false;
   startover();
+  frameRate(60);
 }
 
 function startover() {

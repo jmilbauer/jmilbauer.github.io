@@ -9,12 +9,13 @@ var grassdown = false;
 var cherryMode = true;
 const w = window.innerWidth;
 const h = window.innerHeight-30;
-const gustWidth = 5;
-const windWidth = 200;
+const gustWidth = 10;
+const windWidth = 100;
 const maxVel = 20;
 const minEnergy = 1;
-const windHeight = 50;
+const windHeight = 70;
 var mouseHistory = [];
+const historyLen = 0.2;
 
 const fps = 60;
 
@@ -44,7 +45,7 @@ function draw() {
   }
 
   mouseHistory.push(mouseX);
-  if (mouseHistory.length > fps/3) {
+  if (mouseHistory.length > fps*historyLen) {
     mouseHistory.shift();
   }
 
@@ -115,7 +116,7 @@ function drawArt() {
   }
 
   // Sensing
-  if (mouseIsPressed) {
+  if (mouseIsPressed && mouseButton == LEFT) {
     bubbles[bubbles.length-1].x = mouseX;
     bubbles[bubbles.length-1].y = mouseY;
     bubbles[bubbles.length-1].grow();
@@ -124,7 +125,7 @@ function drawArt() {
   if (grassdown) {
     let n = random(1,5);
     for (let i = 0; i < n; i++) {
-        let h = constrain(randomGaussian(5,4), 1, 25);
+        let h = constrain(randomGaussian(9,5), 1, 25);
         grassBuffer.push(new Grass(randomGaussian(mouseX, 10), height*5/6, h));
     }
   }
@@ -185,8 +186,10 @@ function keyReleased() {
 }
 
 function mousePressed() {
-  bubbles.push(new Bubble(0, 0));
-  drawstack.push(0);
+  if (mouseButton == LEFT) {
+    bubbles.push(new Bubble(0, 0));
+    drawstack.push(0);
+  }
 }
 
 class Bubble {
@@ -396,6 +399,7 @@ class Grass {
     let otherShift = random(-10, 10);
     let darkShift = random(-100, 0);
     this.col = color(160+otherShift+darkShift, 205+greenShift+darkShift, 160+otherShift+darkShift);
+    this.bwcol = color(random(50,255));
     this.swaying = false;
     this.onset = null;
     this.energy = 0;
@@ -430,14 +434,19 @@ class Grass {
     if (this.swaying) {
       let sinval = sin((max(0,frameCount-this.onset))*6.28/fps);
       sinval = constrain(sinval, -1, 1);
-      this.gust = gustWidth*(this.energy/maxVel)*sinval;
+      this.gust = min(gustWidth,this.h)*(this.energy/maxVel)*sinval;
       this.gust *= this.energydir;
     }
   }
 
   display() {
-    stroke(this.col);
+    if (cherryMode) {
+      stroke(this.col);
+    } else {
+      stroke(this.bwcol);
+    }
     strokeWeight(2);
-    line(this.x, this.y, this.x+this.gust, this.y - this.h);
+    let yshift = sqrt(max(pow(this.h, 2) - pow(this.gust, 2),0));
+    line(this.x, this.y, this.x+this.gust, this.y - yshift);
   }
 }

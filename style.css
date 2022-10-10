@@ -24,6 +24,8 @@
   margin-top: 0px;
   margin-left: 0px;
   margin-right: 0px;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .textspan {
@@ -61,7 +63,7 @@ h4 {
   font-family: Overpass;
   font-weight: 400;
   font-size: 24px;
-  margin-top: 50px;
+  margin-top: 0px;
   margin-bottom: 15px;
 }
 
@@ -97,8 +99,8 @@ ul {
 }
 
 .footer {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .profile {
@@ -280,6 +282,12 @@ ul {
 
 .homesteads a {
     color: limegreen;
+}
+
+.center-page {
+  display: flex;
+  justify-content: center;
+  align-items: center
 }
 
 .center-content {

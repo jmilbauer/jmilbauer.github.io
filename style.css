@@ -8,7 +8,6 @@
     overflow-y: auto;
 }*/
 
-}
 /* <meta name="viewport" content="initial-scale=1, maximum-scale=1"> */
 
 @viewport {
@@ -25,7 +24,7 @@
   margin-left: 0px;
   margin-right: 0px;
   width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .textspan {
@@ -37,22 +36,22 @@
 }
 
 h1 {
-    font-family: "Fugaz One";
+    font-family: Caveat;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 56px;
     margin-bottom: 4px;
     margin-top: 0px;
     padding-top: 20px;
 }
 
 .content h2 {
-  font-family: "Fugaz One";
-  font-weight 400;
+  font-family: Caveat;
+  font-weight: 400;
   font-size: 24px;
 }
 
 h5 {
-  font-family: "Fugaz One";
+  font-family: Caveat;
   font-size: 24px;
   font-weight: 200;
   margin-top: 0px;
@@ -65,6 +64,11 @@ h4 {
   font-size: 24px;
   margin-top: 0px;
   margin-bottom: 15px;
+}
+
+.demopage h4 {
+  font-family: Caveat;
+  font-size: 32px;
 }
 
 p {
@@ -94,8 +98,10 @@ ul {
   z-index: 999;
   margin-bottom: 40px;
   padding-bottom: 20px;
-  position: sticky;
-  top: 0px;
+  /* top: 0px; */
+  /* position: sticky;
+  position: -webkit-sticky; */
+  top: 0;
 }
 
 .footer {
@@ -120,7 +126,7 @@ ul {
 .portrait img {
   border: 3px solid black;
   width: 200px;
-  border-radius: 10%;
+  border-radius: 5%;
 }
 
 .contact img {
@@ -150,27 +156,36 @@ ul {
   color: black;
   text-decoration: none;
   border: none;
-  transition: border .1s, color .2s, background .7s;
+  transition: border .1s, background .5s;
+  border-radius: 3px;
+  /* border: 1px solid rgba(255,255,255,0); */
+  /* border-radius: 1px; */
   /* border-bottom: 1px solid steelblue; */
 }
 
 .navbar a:hover {
-  border-bottom: 3px solid steelblue;
+  /* border-bottom: 3px solid steelblue; */
   background: #CEECFA;
+  /* border: 3px solid #CEECFA; */
+  border-bottom: 3px solid steelblue;
   /* color: steelblue; */
 }
 
 .content a {
   color: steelblue;
   text-decoration: none;
-  border-bottom: 1px solid steelblue;
-  transition: background .7s, border .1s;
+  /* border-bottom: 1.5px solid steelblue; */
+  /* background: #c1c1c1; */
+  transition: background .5s, border .1s;
+  /* border: 3px solid rgba(255,255,255,0); */
+  border-radius: 3px;
 }
 
 .content a:hover {
   /* color: green; */
-  border-bottom: 2px solid steelblue;
+  /* border-bottom: 2px solid steelblue; */
   background: #CEECFA;
+  border-bottom: 3px solid steelblue;
 }
 
 .navbar {
@@ -212,11 +227,11 @@ ul {
   max-height: 150px;
   border: 3px solid black;
   margin-right: 20px;
-  transition: filter .1s;
-  /* filter: blur(2px) grayscale(70%); */
+  /* transition: blur 1s, grayscale 1s; */
+  /* filter: blur(1px) grayscale(40%); */
 }
 
-.project a img:hover {
+a img:hover {
   filter: drop-shadow(0 0 .5rem steelblue);
   /* filter: grayscale(0%) blur(0px); */
 }

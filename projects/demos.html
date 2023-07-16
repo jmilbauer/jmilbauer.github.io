@@ -7,11 +7,9 @@ License: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-    <link href="https://fonts.googleapis.com/css?family=Overpass:200,400,600" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rock+3D&family=Shizuru&display=swap" rel="stylesheet">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Arimo:wght@400;600&family=Fugaz+One&family=Orbitron&family=Caveat&family=Overpass:wght@200;400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>Jeremiah Milbauer :: Demos</title>
 </head>
 <body class="standard">
@@ -32,31 +30,100 @@ License: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/
   </div>
 
   <div class="center-page">
-  <div class="center-content content">
-      <h5>This page contains demos. Except they might not all work...</h5>
+  <div class="center-content">
+  <div class="content demopage" style="padding-bottom: 20px">
+      <h4>This page contains demos. Except they might not all work...</h5>
       <p>
-        I did <i>try</i> to get everything working, but the (now defunct) Processing.js library has its limitations. For instance, you can't import Java libraries while using it. Update: I've started using <a href="https://p5js.org/">p5.js</a>, and aside from having to actually learn Javascript, it seems fun!
+        I did <i>try</i> to get everything working, but the (now defunct) Processing.js library has its limitations. For instance, you can't import Java libraries while using it.
+        I am not an expert on javascript, but I did manage to debug and fix one of Processing.js's issues (not handling mobile device clicks/taps correctly) to help both myself and the rest of <a href="https://chrisharrison.net/">Prof. Chris Harrison</a>'s DHCS class for our final projects in 2021. You can download the <a href="code/[bugfix]processing.js">fixed code</a> if you like.
       </p>
       <p>
-        I am not an expert on javascript, but I did manage to debug and fix one of Processing.js's issues (not handling mobile device clicks/taps correctly) to help both myself and the rest of <a href="https://chrisharrison.net/">Prof. Chris Harrison</a>'s class for our final projects in 2021. You can download the <a href="code/[bugfix]processing.js">fixed code</a>.
-      </p>
-
-      <p>
-        <h2>Interfaces</h2>
-        <ul>
-          <li><b>Miniature Keyboard.</b> Designed for tiny interfaces (like an apple watch). <a href="../demos/mini_keyboard.html">[DEMO]</a> <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/SwipeKeyboard">[CODE]</a> </li>
-          <li><b>Cloud Visualization.</b> Interactive cloud for visualizing embeddings. <a href="../images/cloud.mov">[VIDEO]</a> <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/interactiveCloud">[CODE]</a></li>
-          <li><b>(Affectionate) Letterboxed Clone.</b> I got hooked on the NYT Letterboxed game. So I built this! <a href="../images/letterboxed.mov">[VIDEO]</a> <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/LetterBoxed">[CODE]</a></li>
-        </ul>
+        Update (2022): I've started using <a href="https://p5js.org/">p5.js</a> and Javascript proper, and aside from having to actually learn Javascript, it seems fun!
       </p>
 
-      <h2>Artistic</h2>
-      <ul>
-        <li><b>Nighttime Garden.</b> A relaxing nighttime garden. Place trees and moons. <a href="../demos/bonsai.html">[DEMO]</a></li>
-        <li><b>Random pixel generator.</b> A random walk in many dimensions, including color. Sometimes I let this run in the background and pause to print the pixels I like. Man+Machine, working together to make art. <a href="../images/pixels.mov">[VIDEO]</a> <a href="../demos/colorful_random.html">[DEMO]</a> <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/Dimension7RandomWalk">[CODE]</a> </li>
-        <li><b>Matrix Text.</b> My friends asked if I was a hacker. I wasn't, but I wanted to pretend... <a href="../demos/matrix.html">[DEMO]</a> <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/interactiveCloud">[CODE]</a></li>
-        <li><b>Animated Network.</b> ...and every hacker needs a cool animation in the background. <a href="../demos/network.html">[DEMO]</a> <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/dotgraph">[CODE]</a></li>
-      </ul>
+  </div>
+
+  <div class="project flex-container" style="width: 100%;">
+    <div><a href="../demos/newsreader/bbc0.html"><img src="../images/newsense.png"></a></div>
+    <div class="content">
+      <h2>NewsSense</h2>
+      <h3>Built with Javascript frontend + custom NLP (implemented in python) backend.</h3>
+      <p>NewsSense is an interface to help people make sense of the news by
+        viewing multiple perspectives surrounding a single news event.
+        Rather than rely on a knowledge source compiled by a third-party arbiter of "truth," NewsSense helps readers understand the consensus & contradiction between different reporting venues.
+        This enables NewsSense to provide real-time analysis as stories evolve.
+      </p>
+    </div>
+  </div>
+
+  <div class="project flex-container" style="width: 100%;">
+    <div><a href="../demos/bonsai.html"><img src="../images/garden.png"></a></div>
+    <div class="content">
+      <h2>Nighttime Garden</h2>
+      <h3>Built with P5.js</h3>
+      <p>
+        Ever since middle school I've liked the pythagorean tree fractal. I was procrastinating, so I made this little garden to plant trees, grass, and moons in. You can blow wind through the grass with your cursor.
+      </p>
+    </div>
+  </div>
+
+  <div class="project flex-container" style="width: 100%;">
+    <div><a href="../demos/mini_keyboard.html"><img src="../images/keyboard.gif"></a></div>
+    <div class="content">
+      <h2>Miniature Keyboard</h2>
+      <h3>Built with Processing & Processing.js. <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/SwipeKeyboard">View the code</a>.</h3>
+      <p>
+        I built a tiny little predictive keyboard for small screens. This was for Prof. Chris Harrison's DHCS class at CMU.
+      </p>
+    </div>
+  </div>
+
+  <div class="project flex-container" style="width: 100%;">
+    <div><a href="../images/cloud.mov"><img src="../images/cloud.gif"></a></div>
+    <div class="content">
+      <h2>Vector Cloud Visualizations</h2>
+      <h3>Built with Processing. <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/interactiveCloud">View the code.</a></h3>
+      <p>
+        It's what it sounds like: A relatively basic way to visualize & explore a 2d embedding space.
+      </p>
+    </div>
+  </div>
+
+  <div class="project flex-container" style="width: 100%;">
+    <div><a href="../images/letterboxed.mov"><img src="../images/letterboxed.gif"></a></div>
+    <div class="content">
+      <h2>Affectionate Letterboxed Clone</h2>
+      <h3>Built with Processing, using Python to generate new games. <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/LetterBoxed">View the code</a>.</h3>
+      <p>
+        In college, my friends and I got hooked on Letterboxed from the NY Times.
+        But they only release one game a day, so I built this little app so we could keep playing forever. Todo: Make it playable in P5.js.
+      </p>
+    </div>
+  </div>
+
+  <div class="project flex-container" style="width: 100%;">
+    <div><a href="../demos/colorful_random.html"><img src="../images/pixels.gif"></a></div>
+    <div class="content">
+      <h2>Random Walk Pixel Generator</h2>
+      <h3>Built with Processing. <a href="https://github.com/jmilbauer/jmilbauer.github.io/tree/master/projects/code/Dimension7RandomWalk">View the code</a>.</h3>
+      <p>
+        A random walk with 5 degrees of freedom. Sometimes I let it run in the background, and then pause to print the pixels I like.
+      </p>
+    </div>
+  </div>
+
+  <div class="project flex-container" style="width: 100%;">
+    <div><a href="../demos/matrix.html"><img src="../images/matrix.gif"></a></div>
+    <div class="content">
+      <h2>Matrix Text</h2>
+      <h3>Built with Processing. View the code.</h3>
+      <p>
+        Every CS major has this experience: your friends jokingly ask if you're a hacker.
+        I made this for the bit.
+      </p>
+    </div>
+  </div>
+
   </div>
   </div>
 

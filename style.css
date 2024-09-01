@@ -36,7 +36,7 @@
 }
 
 h1 {
-    font-family: Caveat, sans-serif, italic;
+    font-family: Caveat, monospace;
     font-weight: 400;
     font-size: 56px;
     margin-bottom: 4px;
@@ -45,13 +45,13 @@ h1 {
 }
 
 .content h2 {
-  font-family: Caveat, sans-serif, italic;
+  font-family: Caveat, monospace;
   font-weight: 400;
   font-size: 24px;
 }
 
 h5 {
-  font-family: Caveat, sans-serif, italic;
+  font-family: Caveat, monospace;
   font-size: 32px;
   font-weight: 400;
   margin-top: 0px;
@@ -59,7 +59,7 @@ h5 {
 }
 
 h4 {
-  font-family: Overpass, helvetica, sans-serif;
+  font-family: Overpass, sans-serif;
   font-weight: 400;
   font-size: 24px;
   margin-top: 0px;
@@ -67,12 +67,12 @@ h4 {
 }
 
 .demopage h4 {
-  font-family: Caveat, sans-serif, italic;
+  font-family: Caveat, monospace;
   font-size: 32px;
 }
 
 p {
-    font-family: Overpass, helvetica, sans-serif;
+    font-family: Overpass, sans-serif;
     font-size: 18px;
     font-weight: 300;
     margin-top: 0px;
@@ -80,7 +80,7 @@ p {
 }
 
 ul {
-    font-family: Overpass, helvetica, sans-serif;
+    font-family: Overpass, sans-serif;
     font-size: 18px;
     font-weight: 200;
     margin-top: 0px;
@@ -189,19 +189,19 @@ ul {
 }
 
 .navbar {
-  font-family: Overpass, helvetica, sans-serif;
+  font-family: Overpass, sans-serif;
   font-weight: 200;
   font-size: 20px;
   margin-bottom: 20px;
 }
 
 .project {
-  font-family: Overpass, helvetica, sans-serif;
+  font-family: Overpass, sans-serif;
   font-weight: 100px;
 }
 
 .project h2 {
-  font-family: Overpass, helvetica, sans-serif;
+  font-family: Overpass, sans-serif;
   font-size: 20px;
   font-weight: 400;
   margin-top: 0px;

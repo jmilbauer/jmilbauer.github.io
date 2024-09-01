@@ -36,8 +36,7 @@
 }
 
 h1 {
-    font-family: Caveat, courier;
-    font-family: serif;
+    font-family: Caveat, sans-serif, italic;
     font-weight: 400;
     font-size: 56px;
     margin-bottom: 4px;

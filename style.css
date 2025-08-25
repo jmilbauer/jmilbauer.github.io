@@ -38,6 +38,11 @@ a {
     transition: background .2s;
     border-radius: 0px;
 }
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
   
 a:hover {
     background: #CEECFA;
@@ -62,7 +67,6 @@ a:hover {
     text-align: left;
     padding-top: 40px;
     height: 140px;
-    background-color: white;
 }
 
 .container {
@@ -78,8 +82,6 @@ a:hover {
     margin-right: 5vw;
     margin-left: clamp(5vw, calc(30vw - 10rem), 20vw);
 }
-
-
 
 .nav {
     margin-top: 5px;
@@ -196,6 +198,15 @@ a:hover {
 
 .project-text {
     font-size: 10pt;
+}
+
+.writing p {
+    margin-top: 20px;
+    margin-bottom: 0rem;
+}
+
+.writing-block {
+    max-width: 600px;
 }
 
 @media (max-width: 600px) {

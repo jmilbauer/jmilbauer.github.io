@@ -1,0 +1,233 @@
+<!--
+Made with love, completely from scratch, in HTML and CSS
+by Jeremiah Milbauer jeremiah.milbauer.info
+License: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <link rel="icon" type="image/x-icon" href="images/favicon.png"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Overpass:200,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rock+3D&family=Shizuru&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Arimo:wght@400;600&family=Fugaz+One&family=Orbitron&family=Caveat&family=Overpass:wght@200;400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title>Jeremiah Milbauer: projects</title>
+</head>
+<body class="standard">
+
+  <div class="center-page">
+  <span class="banner">
+    <div id="bgbox">
+    <div class="center-content">
+      <h1>Jeremiah Milbauer</h1>
+      <span class="navbar">
+        <a href="index.html">home</a> : :
+        <a href="projects.html" style="color: steelblue;">projects</a> : :
+        <a href="creations.html">creative</a> : :
+        <a href="misc.html">misc</a>
+      </span>
+    </div>
+  </div>
+  </span>
+  </div>
+
+<div class="center-page" style="padding-bottom: 40px;">
+<div class="center-content">
+
+    <div class="content">
+      <h4 style="margin-bottom: 0px;">Research Projects</h4>
+      <p style="margin-top: 0px;">(click on the pictures to explore)</p>
+    </div>
+
+    <!-- <div class="project flex-container" style="width: 100%;">
+      <div><a href=""><img src=""></a></div>
+      <div class="content">
+        <h2>Sentence-level Fusion In Decoder</h2>
+        <h3>with Moshe Berchansky, and Emma Strubell</h3>
+        <p>We introduce a token-efficient approach to fusion-in-decoder retrieval augmented QA by first retrieving passages, and then filtering for the most useful sentences within each passage. We were ultimately scooped by research that applied this principle -- and almost exactly the same algorithm -- to RAG for LLMs.</p>
+      </div> -->
+
+
+    <!-- <div class="project flex-container" style="width: 100%;">
+      <div><a href=""><img src=""></a></div>
+      <div class="content">
+        <h2>Silent Refusal</h2>
+        <h3>Under review. with Emma Strubell</h3>
+        <p>Sometimes LLMs refuse explicitly; other times, they refuse silently. We show that LLMs are biased information filters, silently and systematically abstaining from summarizing and paraphrasing text produced by certain identity groups.</p>
+      </div> -->
+  
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://arxiv.org/abs/2410.05613"><img src="images/llmrec.jpg"></a></div>
+      <div class="content">
+        <h2>User Identity Covertly Biases Chatbot Recommendations</h2>
+        <h3>With Anjali Kantharuban, Emma Strubell, and Graham Neubig.</h3>
+        <p>When users implicitly reveal their racial identity in a request, they get stereotypical recommendations — and further conversational turns obfuscate the effect of implicit identity disclosure.</p>
+      </div>
+  
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://drive.google.com/file/d/1jV-gcm9WNq7nSl17eOobPFBTJi4RaGtM/view?usp=sharing"><img src="images/lm_selfsim.jpg"></a></div>
+      <div class="content">
+        <h2>Inside the Echo Chamber</h2>
+        <h3>In progress, presented at TADA 2023</h3>
+        <p>We demonstrate that language models can be leveraged to measure echo chambers and identify cross-community ideological and linguistic similarity.</p>
+      </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://drive.google.com/file/d/1XT5rMkDzein50Kk3HinUg5vuoBY9Uxm5/view?usp=drive_link"><img src="images/newsense.png"></a></div>
+      <div class="content">
+        <h2>From Nuisance to News Sense – Reference-free Fact Verification</h2>
+        <h3>EMNLP 2023 (Demo Track), with Ziqi Ding, Zhijin Wu, and Sherry Wu.</h3>
+        <p>A novel interface to help readers make sense of news article clusters. We leverage consensus to automatically identify, highlight, and link supporting evidence and contradictory statements across multiple documents. <a href="https://www.youtube.com/watch?v=2D5LYbsQJak">Demo video.</a></p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://aclanthology.org/2023.acl-long.571/"><img src="images/laitcache.png"></a></div>
+      <div class="content">
+        <h2>Efficient Multi-Segment Encoding with Layerwise Adjustable Interaction</h2>
+        <h3>ACL 2023, with Tal Schuster, Annie Louis, Alex Fabrikant, Javad Hosseini, and Donald Metzler.</h3>
+        <p>We study the extent to which cross-segment attention is needed for multi-segment reasoning tasks. We found that partially parallel segment processing (ie, late interaction) can enable segment caching and reduce latency without harming performance for many reasoning tasks.</p>
+      </div>
+    </div>
+
+    <!-- <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://drive.google.com/file/d/1BxaDOTfKrmz-LKU9FC97vX5etpfnD2Vo/view?usp=sharing"><img src="images/traversal.png"></a></div>
+      <div class="content">
+        <h2>Evidence Graphs and Adaptive Retrievers</h2>
+        <h3>In progress, with Emma Strubell.</h3>
+        <p>We aim to distil the knowledge of sota QA systems, as well as sota document representation, to passage-legel "evidence graphs," and to then use an adaptive retriever to efficiently traverse the graph. This should render various forms of question answering more interpretable, fast, and accurate.</p>
+      </div>
+    </div> -->
+
+    <div class="project flex-container" style="width: 100%">
+      <div><a href="https://drive.google.com/file/d/1LRAJ4RgDeh56o3KlavJXxRioW87fcwnP/view?usp=sharing"><img src="images/cocktail.png"></a></div>
+      <div class="content">
+        <h2>Transparently Synthesized Speech</h2>
+        <h3>With Jessica Huynh, Jiatong Shi, Xuankai Chang, and Shinji Watanabe.</h3>
+        <p>We developed a new method for voice conversion that continuosuly shifts between speaker identities, creating an eerie effect. This achieves improvements in speech anonymization and naturalness, and I hope to develop extended uses for emotion and personality-design in human-computer interaction.</p>
+      </div>
+    </div>
+
+    <!-- <div class="project flex-container" style="width: 100%;">
+      <div><img src="images/curriculum2.jpg"></div>
+      <div class="content">
+        <h2>Structure-aware Curriculum Learning</h2>
+        <h3>In progress, with Emma Strubell</h3>
+        <p>We investigate the use of different curriculum learning strategies for fine-tuning expert-domain document representation system. We achieve state of the art results for scientific document representation, and introduce a new benchmark for legal document representation.</p>
+      </div>
+    </div> -->
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://drive.google.com/file/d/1ru9KP2Ri1X4iZgUInNhuHsHVBzvdFMea/view?usp=sharing"><img src="images/power_path2.jpg"></a></div>
+      <div class="content">
+        <h2>Paths to Power</h2>
+        <h3>With Adarsh Mathew and James Evans</h3 >
+        <p>We performed a computational study of the behavior of "power users" on Reddit. We found that users move through the social network in strategic ways, and that as they rise to power they increasingly use their power to drive division. We suggest new strategies for taming radicalization and addressing misinformation networks online.</p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://aclanthology.org/2021.emnlp-main.396"><img src="images/worldview_layers.png"></a></div>
+      <div class="content">
+        <h2>Aligning Multidimensional Worldviews and Discovering Ideological Differences</h2>
+        <h3>EMNLP 2021, with Adarsh Mathew and James Evans</h3>
+        <p>We align unsupervised word embeddings to automatically discover polarized word meanings across communities, find unexpected conceptual homomorphisms, and enable the study of ideological and worldview differences in text.
+          <!-- enabling a large-scale, multidimensional, and unsupervised study of worldview differences online.</p> -->
+        <!-- Automatically discover where communities disgaree about the meaning of words-->
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><img src="images/influence_graph.png"></div>
+      <div class="content">
+        <h2>Networked Influence on Reddit</h2>
+        <h3>INDE 2021, with Adarsh Mathew and James Evans</h3>
+        <p>Using methods from link analysis, we identify the most influential and powerful users on Reddit. Then, we explore how they move across communities over time.</p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://drive.google.com/file/d/1VyKnBPGQDt2rx2s3M434roFfrbVD1OhG/view?usp=sharing"><img src="images/repo_reps.png"></a></div>
+      <div class="content">
+        <h2>Representing Repositories in the Open Source Ecosystem</h2>
+        <h3>IC2S2 2021, with Yutao Chen, Deblina Mukherjee, and James Evans</h3>
+        <p>Collected from over 28,000,000 repositories on Github, we built a training dataset, designed an evaluation suite (based on practical downstream tasks), and trained a set of baseline models for representing Github repositories.</p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%; margin-top: 50px;">
+      <h4>Other Work</h4>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="projects/demos.html"><img src="images/placeholder.jpg"></a></div>
+      <div class="content">
+        <h2>Creative Coding</h2>
+        <h3>Some art, some games, some interfaces</h3>
+        <p>I love to write beautiful code that makes beautiful things! Sometimes when I get hooked on a game (like NYT's "LetterBoxed") I write a program to let me play more than 1/day. Sometimes I write projects to help me visualize data. Sometimes I turn classic algorithms into art :)</p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://www.economist.com/open-future/2019/09/17/fresh-thinking-to-respond-to-climate-change"><img src="images/openfuture.jpg"></a></div>
+      <div class="content">
+        <h2>Green Homesteads</h2>
+        <h3>Finalist (top 0.25%), The Economist's Open Future Essay Competition</h3>
+        <p>I developed an economic plan to combat climate change. My "green homesteading" program would simultaneously: create market incentives to promote energy farms, associate greentech with American entrepreneurship and innovation, and create a platform to address historic land inequity. You can read it <a href="homesteads.html">here</a>.</p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://www.ycombinator.com/companies/simmer"><img src="images/simmer.jpg"></a></div>
+      <div class="content">
+        <h2>Simmer (formerly "Foodie")</h2>
+        <h3>YCombinator 2019</h3>
+        <p>Some college friends and I built an app which helped people find the best dish on every menu. I worked on the machine learning pipeline, which involved named entity recognition, sentiment analysis, and working with data labeling contractors. I also built an trend-tracking tool for restaurants. The app is defunct, but I've documented some stuff <a href="foodie.html">here</a>!</p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://imgur.com/gallery/PVznQnD"><img src="images/dnd_tokens.jpg"></a></div>
+      <div class="content">
+        <h2>Dungeons and Dragons</h2>
+        <h3>At the UChicago Fab Lab</h3>
+        <p>In college, I played Dungeons & Dragons with my friends. More than just play, I loved to design worlds, characters, and even the tabletop objects for the game! At UChicago's Fab(<i>ulous</i>) Lab, Elise and I made artistic player tokens and laser-cut wooden architectural maps.</p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="projects/turingmachine.html"><img src="images/turing.jpg"></a></div>
+      <div class="content">
+        <h2>Programmable Turing Machine</h2>
+        <h3>Just for fun.</h3>
+        <p>For an added layer of irony, I programmed it entirely using Elm.</p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://cyber.harvard.edu/research/studentprivacy"><img src="images/berkman_scales.jpg"></a></div>
+      <div class="content">
+        <h2>Student Privacy Initiative</h2>
+        <h3>At the Berkman-Klein Center</h3>
+        <p>As a research assistant intern at the Berkman Center, I assisted with research on privacy and EdTech. I also managed the Center's "This Week in Student Privacy" newsletter (complete with weekly cat pictures), and advised the MIT Media Lab's Lifelong Kindergarten team on communicating the remix philosophy :)</p>
+      </div>
+    </div>
+
+    <div class="project flex-container" style="width: 100%;">
+      <div><a href="https://scratch.mit.edu/users/Spatterlight/"><img src="images/scratch.jpg"></a></div>
+      <div class="content">
+        <h2>Programming in Scratch!</h2>
+        <h3>A walk down memory lane...</h3>
+        <p>Although I started programming in Microworlds at a very young age, it was not until Scratch came about that I fell in love with the ability to build my own worlds, games, and systems with code. I attended the very first Scratch conference, and later had the privilege to work with the Scratch team.</p>
+      </div>
+    </div>
+
+    </div>
+
+</div>
+</body>
+</html>

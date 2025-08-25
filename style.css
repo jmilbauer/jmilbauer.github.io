@@ -1,376 +1,233 @@
-/* Made with love, completely from scratch, in HTML and CSS
-* by Jeremiah Milbauer jeremiah.milbauer.info
-* License: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/
-*/
-
-/*.scrollable {
-    height: 100vh;
-    overflow-y: auto;
-}*/
-
-/* <meta name="viewport" content="initial-scale=1, maximum-scale=1"> */
-
-@viewport {
-    width: device-width;
-    initial-scale: 1.0;
+* {
+    padding: 0px;
+    margin: 0px;
 }
 
-@media all and (max-width: 650px) {
-    .disappear { display: none; }
-}
-
-.standard {
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
-  width: 100vw;
-  /* overflow-x: hidden; */
-}
-
-.textspan {
-    width: 500px;
-}
-
-.imgspan {
-    width: 100px;
+body {
+    font-family: 'Avenir Next', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #444;
+    background-color: #fff;
 }
 
 h1 {
-    font-family: Caveat, monospace;
+    font-family: "EB Garamond", "Georgia", "Times New Roman", "Times", serif;
     font-weight: 400;
-    font-size: 56px;
-    margin-bottom: 4px;
-    margin-top: 0px;
-    padding-top: 20px;
+    font-size: 30pt;
+    color: #000;
 }
 
-.content h2 {
-  font-family: Caveat, monospace;
-  font-weight: 400;
-  font-size: 24px;
-}
-
-h5 {
-  font-family: Caveat, monospace;
-  font-size: 32px;
-  font-weight: 400;
-  margin-top: 0px;
-  margin-bottom: 20px;
-}
-
-h4 {
-  font-family: Overpass, sans-serif;
-  font-weight: 400;
-  font-size: 24px;
-  margin-top: 0px;
-  margin-bottom: 15px;
-}
-
-.demopage h4 {
-  font-family: Caveat, monospace;
-  font-size: 32px;
+h2 {
+    font-weight: 400;
+    font-size: 18pt;
+    color: #000;
 }
 
 p {
-    font-family: Overpass, sans-serif;
-    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+i {
     font-weight: 300;
-    margin-top: 0px;
-    line-height: 1.5;
 }
 
-ul {
-    font-family: Overpass, sans-serif;
-    font-size: 18px;
-    font-weight: 200;
-    margin-top: 0px;
-    line-height: 1.5;
+a {
+    color: steelblue;
+    text-decoration: none;
+    transition: background .2s;
+    border-radius: 0px;
+}
+  
+a:hover {
+    background: #CEECFA;
 }
 
-#bgbox {
-  background-color: rgb(255,255,255) ;
-  box-shadow: rgb(255,255,255)  0px 15px 15px 0px;
-  margin: 0px;
-  padding: 0px;
+.main {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    flex-wrap: wrap-reverse;
+    margin-bottom: 50px;
 }
 
-.banner div {
-  z-index: 999;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  /* top: 0px; */
-  /* position: sticky;
-  position: -webkit-sticky; */
-  top: 0;
+.main_text {
+    min-width: 300px;
+    max-width: 800px;
 }
 
-.footer {
-  padding-top: 40px;
-  padding-bottom: 40px;
+
+.banner {
+    width: 100%;
+    text-align: left;
+    padding-top: 40px;
+    height: 140px;
+    background-color: white;
 }
 
-.profile {
-  vertical-align: top;
-  margin-bottom: 50px;
+.container {
+    display: flex;
+    flex-direction: row;
 }
 
-.profile div {
-  margin-left: 50px;
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin-right: 5vw;
+    margin-left: clamp(5vw, calc(30vw - 10rem), 20vw);
 }
 
-.profile p {
-  font-size:16px;
-  margin: 0px;
+
+
+.nav {
+    margin-top: 5px;
+    display: flex;
+    gap: .8rem;
+    font-size: 10pt;
+    text-transform: uppercase;
+}
+
+#sidebar {
+    position: fixed;
+    width: calc(clamp(5vw, calc(30vw - 10rem), 20vw) - 3rem);
+    min-height: 100vh;
+    text-align: right;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 180px;
+    display: none;
+}
+
+#sidebar a {
+    width: 100%;
+}
+
+#current {
+    border-bottom: 2px solid steelblue;
+}
+
+
+
+.contact-card img {
+    width: 200px;
 }
 
 .portrait img {
-  border: 3px solid black;
-  width: 200px;
-  border-radius: 5%;
+    border-radius: 5%;
+    border: 3px solid black;
 }
 
-.contact img {
-  height: 20px;
-  vertical-align: top;
+.contact-card {
+    width: 200px;
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
+
+
+.research-tags {
+    margin: 20px 0;
 }
 
-.index-flex {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  max-width: 890px;
-  flex-wrap: wrap-reverse;
-  align-items: flex-end;
+.tag {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    transition: opacity 0.2s;
 }
 
-.navbar a {
-  color: black;
-  text-decoration: none;
-  border: none;
-  transition: border .1s, background .5s;
-  border-radius: 3px;
-  /* border: 1px solid rgba(255,255,255,0); */
-  /* border-radius: 1px; */
-  /* border-bottom: 1px solid steelblue; */
+.tag:hover {
+    opacity: 0.8;
 }
 
-.navbar a:hover {
-  /* border-bottom: 3px solid steelblue; */
-  background: #CEECFA;
-  /* border: 3px solid #CEECFA; */
-  border-bottom: 3px solid steelblue;
-  /* color: steelblue; */
+.tag.active {
+    box-shadow: 0 0 0 2px #000;
 }
 
-.content a {
-  color: steelblue;
-  text-decoration: none;
-  /* border-bottom: 1.5px solid steelblue; */
-  /* background: #c1c1c1; */
-  transition: background .5s, border .1s;
-  /* border: 3px solid rgba(255,255,255,0); */
-  border-radius: 3px;
-}
+.tag-css { background-color: #3498db; }
+.tag-hci { background-color: #e74c3c; }
+.tag-nlp { background-color: #2ecc71; }
+.tag-ai { background-color: #9b59b6; }
+.tag-social { background-color: #f39c12; }
 
-.content a:hover {
-  /* color: green; */
-  /* border-bottom: 2px solid steelblue; */
-  background: #CEECFA;
-  border-bottom: 3px solid steelblue;
-}
 
-.navbar {
-  font-family: Overpass, sans-serif;
-  font-weight: 200;
-  font-size: 20px;
-  margin-bottom: 20px;
+.projectlist {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .project {
-  font-family: Overpass, sans-serif;
-  font-weight: 100px;
+    display: flex;
+    flex-direction: row;
 }
 
-.project h2 {
-  font-family: Overpass, sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  margin-top: 0px;
-  margin-bottom: 0px;
+.project-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    gap: .2rem;
 }
 
-.project h3 {
-  font-size: 16px;
-  font-weight: 200;
-  margin: 0px;
-  margin-bottom: 10px;
-  font-style: italic;
-}
-
-.project p {
-  max-width: 600px;
-  font-size: 16px;
-  line-height: 1.2;
-
+.project-title {
+    font-size: 12pt;
+    font-weight: 600;
 }
 
 .project img {
-  max-height: 150px;
-  border: 3px solid black;
-  margin-right: 20px;
-  /* transition: blur 1s, grayscale 1s; */
-  /* filter: blur(1px) grayscale(40%); */
-}
-
-a img:hover {
-  filter: drop-shadow(0 0 .5rem steelblue);
-  /* filter: grayscale(0%) blur(0px); */
+    width: 8rem;
+    height: 8rem;
 }
 
 
-
-
-
-
-/*table, th, td, tr {
-    border: 1px solid black;
-}*/
-
-.pagesection {
-    margin-left: 20px;
+.project p {
+    margin-top: .5rem;
 }
 
-.scenescape {
-    color: lavender;
-    background-color: black;
+.project-metadata {
+    font-size: 10pt;
+    font-style: italic;
 }
 
-.foodie {
-    color: white;
-    background-color: darkorange;
+.project-text {
+    font-size: 10pt;
 }
 
-.wikify {
-    color: steelblue;
-    background-color: white;
+@media (max-width: 600px) {
+    .project-text {
+        display: none;
+    }
 }
 
-.ideology {
-    color: white;
-    background-color: darkslategrey;
+/* Have a media query that hides project text when the window is small. */
+
+.project-tag {
+    display: inline-block;
+    /* padding: 2px 6px; */
+    /* margin-right: 5px; */
+    border-radius: 2px;
+    font-size: 11px;
+    color: #fff;
+    min-height: 24px;
+    min-width: 24px;
 }
 
-.tutorials {
-    color: lime;
-    background-color: black;
+#selfie {
+    filter: grayscale(0.8) contrast(1.2);
+    transition: 1s ease;
 }
 
-.tutorials p {
-    color: white;
-}
-
-.tutorials a {
-    color: limegreen;
-}
-
-.homesteads {
-    background-color: white;
-    color: black;
-}
-
-.homesteads h1 {
-    color: forestgreen;
-}
-
-.homesteads h2 {
-    color: forestgreen;
-}
-
-.homesteads a {
-    color: limegreen;
-}
-
-.center-page {
-  display: flex;
-  justify-content: center;
-  align-items: center
-}
-
-.center-content {
-    text-align: left;
-    width: 80vw;
-    max-width: 1100px;
-    margin-left: 10vw;
-    margin-right: 10vw;
-}
-
-/* .all-content {
-    text-align: left;
-    margin-left: 10vw;
-}
-
-.top-content {
-    width: 50vw;
-    margin-right: 40vw;
-}
-
-.main-content {
-    width: 80vw;
-    margin-right: 10vw;
+/* #selfie:hover {
+    filter: none;
+    transition: .5s ease;
 } */
 
 
-
-
-.btn {
-  position: relative;
-
-  display: block;
-  margin: 30px auto;
-  padding: 0;
-
-  overflow: hidden;
-
-  border: 2px solid darkred;
-  outline: none;
-  border-radius: 10px;
-  /* box-shadow: 0 1px 4px rgba(0, 0, 0, .6); */
-
-  background-color: white;
-  color: darkred;
-
-  transition: background-color .3s;
-}
-
-.btn:hover {
-  background-color: darkred;
-  color: white;
-}
-
-.btn > * {
-  position: relative;
-}
-
-.btn span {
-  display: block;
-  padding: 12px 24px;
-}
-
-/* #pic:hover {
-  filter: grayscale(0);
-  transition: 0.2s;
-}
-
-#pic {
-  filter: grayscale(0.7);
-  transition: 0.2s;
-} */
+/* 
+.tag-nlp { background-color: #1abc9c; }
+.tag-ethics { background-color: #34495e; } */

@@ -1,108 +1,70 @@
-<!--
-Made from scratch, in HTML and CSS
-by Jeremiah Milbauer jeremiah.milbauer.info
-License: CC BY-SA 4.0 - https://creativecommons.org/licenses/by-sa/4.0/
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel=“canonical” href=“https://jeremiah.milbauer.info” />
-  <!-- <link rel="icon" type="image/x-icon" href="images/favicon.png"> -->
-  <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Arimo:wght@400;600&family=Fugaz+One&family=Orbitron&family=Caveat&family=Overpass:wght@200;400;600&display=swap" rel="stylesheet">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Jeremiah Milbauer is a computer scientist working on natural language processing, human-AI interaction, and computational social science.">
-    <title>Jeremiah Milbauer</title>
-
-    <!-- <audio id="easter_egg" hidden src="hxh.mp3" type="audio/mpeg">
-    </audio> -->
-
-    <!-- <script>
-      let playing = false;
-      let audio = document.getElementById("easter_egg");
-      let pic = document.getElementById("pic");
-      audio.volume = 0.1;
-      function play() {
-        if (playing) {
-          playing = false;
-          audio.pause();
-          pic.src='images/face.jpg'
-        } else {
-          playing = true;
-          audio.play();
-          pic.src='images/fancy.jpg'
-        }
-      }
-    </script> -->
-
+  <meta charset="UTF-8" />
+  <meta name="author" content="Jeremiah Milbauer">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jeremiah Milbauer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
 </head>
-<body class="standard">
+<body>
+<div class="container homepage">
+    
+    <div class="layout">
 
-  <div class="top-banner">
-    <div class="center-page">
-      <span class="banner">
-        <div id="bgbox">
-          <div class="center-content">
+        <div class="banner">
             <h1>Jeremiah Milbauer</h1>
-            <span class="navbar">
-              <a href="index.html" style="color: steelblue;">home</a> : :
-              <a href="projects.html">projects</a> : :
-              <a href="creations.html">creative</a> : :
-              <a href="misc.html">misc</a>
-            </span>
+            <div class="nav" id="topbar">
+                <a href="index.html" id="current">Home</a>
+                <a href="research.html"><span>Research</span></a>
+                <a href="creative.html"><span>Creative</span></a>
+                <!-- <a href="writing.html"><span>writing</span></a> -->
+                <a href="misc.html"><span>Misc.</span></a>
+            </div>
         </div>
-      </div>
-      </span>
+
+        <div class="main">
+
+            <div class="main_text" style="max-width: 600px;">
+                <p>
+                    I am a PhD student in the <a href="">Language Technologies Institute</a> at Carnegie Mellon University's
+                    School of Computer Science,
+                    advised by <a href="">Emma Strubell</a>.
+                    My work investigates the <b>epistemic role of artificial intelligence</b>,
+                    with a focus on understanding and augmenting the way people discover and explore ideas.
+                </p>
+
+                <p>
+                    Supported by the <a href="https://www.mozilla.ai/">Mozilla.ai</a> residency,
+                    I'm currently working on research agents.
+
+                <p>
+                    Previously, I've worked at Google Research (now part of Google Deepmind), Knowledge Lab, Waymo (at Google X), and the Berkman-Klein Center.
+                    As an undergrad I studied computer science, philosophy, and linguistics at the <a href="">University of Chicago</a>.
+                    And before that I grew up in NYC.
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <span class="portrait">
+                    <img id="selfie" src="images/me.jpg" alt="a picture of me">
+                </span>
+                <span class="contact">
+                    <img src="images/email.jpg" alt="first initial + first seven letters of last name + at andrew dot cmu dot edu">
+                    <a href="cv/cv_jmilbauer_aug_2025.pdf">CV</a> ///
+                    <a href="https://scholar.google.com/citations?user=b1809lMAAAAJ&hl=en&oi=ao">Google Scholar</a> /
+                    <a href="http://www.github.com/jmilbauer">Github</a> /
+                    <a href="https://twitter.com/jerelev">Twitter</a> /
+                    <a href="https://bsky.app/profile/jerelev.bsky.social">Bluesky</a>
+                  </span>
+            </div>
+
+        </div>
     </div>
-  </div>
-
-  <div class="center-page">
-  <div class="center-content">
-
-    <div class="index-flex">
-
-        <div class="content" style="min-width: 60%; max-width: 600px;">
-          <!-- <p>Hello there!</p> -->
-          <p>
-            I am a computer science PhD student at Carnegie Mellon University, in the <a href="https://www.lti.cs.cmu.edu/">Language Technologies Institute</a>.
-            My work focuses on artificial intelligence systems that <b>enhance the way people discover, explore, and connect ideas</b>.
-            <!-- I am also interested in studying the social processes of knowledge creation. -->
-            At CMU, I am advised by <a href="http://strubell.github.io/">Emma Strubell</a>
-            and supported by the <a href="https://www.cmu.edu/ideas-social-cybersecurity/people/knight-fellows.html">Knight Fellowship</a>.
-          </p>
-          <p>
-            <i>Previously</i> I worked on computational social science at <a href="https://www.knowledgelab.org/">Knowledge Lab</a>,
-            natural language processing & LLMs as a student researcher at <a href="https://research.google/teams/athena/">Google</a>,
-            autonomous driving at <a href="https://waymo.com/">Google X</a>,
-            and tech law & policy at <a href="https://cyber.harvard.edu/research/studentprivacy">Harvard</a>.
-            As an undergraduate I studied computer science, philosophy, and linguistics at the <a href="https://www.uchicago.edu/">University of Chicago</a>.
-          </p>
-
-          <p>
-            <i>Beyond the world of computers</i> I have been an <a href="https://backtoonenyctheatre.blogspot.com/2013/02/jeremiah-milbauer-renaissance-man.html">actor</a>,
-            a <a href="https://chicagomaroon.com/22006/news/mock-trial-team-earn-accolades-at-national-championship/">mock trial</a> <a href="https://jrcnyc.org/site/2015/05/13/2322/">captain</a>,
-            and <a href="https://www.economist.com/podcasts/2019/09/24/planet-inc-climate-change-and-the-risks-to-business">publicly angry</a> about climate change.
-            I enjoy cooking, making music, reading poetry, arts & crafts, and going out dancing.
-          </p>
-        </div>
-
-        <div class="profile" style="width: 210px">
-          <span class="portrait">
-            <img id="pic" src="images/artsy.jpg" alt="a picture of me" style="filter: grayscale(0.8) contrast(1.2);">
-          </span>
-          <span class="content contact">
-            <p><b>Email:</b> <img src="images/email.jpg" alt="first initial + first seven letters of last name + at andrew dot cmu dot edu"> </p>
-            <br>
-            <p><a href="https://scholar.google.com/citations?user=b1809lMAAAAJ&hl=en&oi=ao">Google Scholar</a></p>
-            <p><a href="http://www.github.com/jmilbauer">Github</a></p>
-            <p><a href="https://twitter.com/jerelev">Twitter</a></p>
-            <p><a href="https://bsky.app/profile/jerelev.bsky.social">Bluesky</a></p>
-          </span>
-        </div>
-
-    </div>
-  </div>
 
 </div>
 </body>

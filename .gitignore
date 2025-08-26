@@ -1,10 +1,16 @@
-*/hidden/*
+# hidden dirs
+**/hidden/
+
+# scratchpad files
 scratchpad/
-alternative.html
+
+# alternative files
 alternative*.html
 alternative*.css
+
+# doc types
 cv.pdf
 scheduling.html
-projects/hidden/*
-pdfs/hidden/*
+
+# system files
 .DS_Store

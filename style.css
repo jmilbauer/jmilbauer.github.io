@@ -186,6 +186,9 @@ a:hover {
     height: 8rem;
 }
 
+.research ul {
+    padding-left: 14px;
+}
 
 .project p {
     margin-top: .5rem;

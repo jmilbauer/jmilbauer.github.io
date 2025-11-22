@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /pdfs/research-agent-2025.pdf

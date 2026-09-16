@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0f0e0d">
+<meta name="author" content="Oneshot by claude, edited by Chatgpt and Gemini">
+<title>Life</title>
+<style>
+  :root{
+    --bone:#f4efe6;
+    --ink:#141211;
+    --sans:"Helvetica Neue",Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+  body{
+    font-family:var(--sans);
+    background:var(--ink);
+    color:var(--bone);
+    -webkit-user-select:none;user-select:none;
+    touch-action:manipulation;
+  }
+
+  /* ---------- table ---------- */
+  #table{display:grid;height:100dvh;width:100vw;gap:2px;background:#0f0e0d}
+  #table[data-n="2"]{grid-template-rows:1fr 1fr}
+  #table[data-n="3"],#table[data-n="4"]{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+  #table[data-n="3"] .seat:nth-child(3){grid-column:1/3}
+
+  .seat{position:relative;overflow:hidden;container-type:size}
+  .seat::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(120% 90% at 50% 45%,rgba(255,255,255,.07),rgba(0,0,0,.28));
+  }
+  .seat.down{filter:saturate(.35) brightness(.62)}
+
+  .inner{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:2cqmin;
+  }
+
+  .marks{display:flex;gap:8px;min-height:22px;align-items:center}
+  .mark{
+    font-size:max(11px,2.6cqmin);letter-spacing:.01em;
+    padding:4px 9px;border-radius:999px;
+    background:rgba(0,0,0,.26);color:rgba(244,239,230,.78);
+    display:none;
+  }
+  .mark.on{display:block}
+  .mark.alarm{background:rgba(244,239,230,.9);color:#1a1614;font-weight:600}
+
+  .row{display:flex;align-items:center;justify-content:center;width:100%}
+
+  .step{
+    flex:0 0 auto;width:24cqmin;max-width:120px;height:26cqmin;max-height:130px;
+    background:none;border:0;color:rgba(244,239,230,.55);
+    font:inherit;font-size:9cqmin;line-height:1;
+    display:grid;place-items:center;cursor:pointer;touch-action:none;
+  }
+  .step:active{color:var(--bone)}
+
+  .life{
+    flex:1 1 auto;text-align:center;
+    font-size:34cqmin;line-height:.9;font-weight:600;
+    letter-spacing:-.045em;font-variant-numeric:tabular-nums;
+    touch-action:none;cursor:pointer;
+  }
+  .seat.down .life{opacity:.5}
+  .name{
+    font-size:max(11px,2.6cqmin);color:rgba(244,239,230,.5);
+    letter-spacing:.02em;
+  }
+
+  /* ---------- long-press menu ---------- */
+  #scrim{position:fixed;inset:0;background:rgba(10,9,8,.55);display:none;z-index:40}
+  #scrim.on{display:block}
+
+  #fan{position:fixed;left:0;top:0;z-index:50;display:none}
+  #fan.on{display:block}
+  .chip{
+    position:absolute;transform:translate(-50%,-50%);
+    width:138px;padding:15px 10px;border-radius:14px;
+    background:rgba(20,18,17,.92);border:1px solid rgba(244,239,230,.22);
+    color:rgba(244,239,230,.82);text-align:center;
+    font-size:14px;letter-spacing:.01em;line-height:1.25;
+  }
+  .chip.hot{background:var(--bone);color:#141211;border-color:var(--bone)}
+
+  /* ---------- sheets ---------- */
+  .sheet{
+    position:fixed;z-index:60;left:0;right:0;bottom:0;display:none;
+    background:#191715;border-top:1px solid rgba(244,239,230,.12);
+    border-radius:20px 20px 0 0;
+    padding:22px 20px calc(22px + env(safe-area-inset-bottom));
+  }
+  .sheet.on{display:block}
+  .sheet h2{font-size:19px;font-weight:600;letter-spacing:-.01em;margin-bottom:4px}
+  .sheet p{font-size:13px;color:rgba(244,239,230,.55);line-height:1.45}
+
+  /* counters sheet floats centered so it can rotate to the player */
+  #counter{
+    top:50%;bottom:auto;left:50%;right:auto;width:min(340px,86vw);
+    border-radius:20px;border:1px solid rgba(244,239,230,.12);
+    padding:22px 20px;
+  }
+
+  .crow{
+    display:flex;align-items:center;gap:14px;
+    padding:12px 0;border-bottom:1px solid rgba(244,239,230,.09);
+  }
+  .crow:last-of-type{border-bottom:0}
+  .crow .who{flex:1;display:flex;align-items:center;gap:10px;font-size:15px}
+  .dot{width:11px;height:11px;border-radius:3px;flex:0 0 auto}
+  .cval{
+    min-width:44px;text-align:center;font-size:26px;font-weight:600;
+    font-variant-numeric:tabular-nums;letter-spacing:-.03em;
+  }
+  .cval.alarm{color:#ffb4a0}
+  .tiny{
+    width:44px;height:44px;border-radius:12px;flex:0 0 auto;
+    background:rgba(244,239,230,.09);border:0;color:var(--bone);
+    font:inherit;font-size:20px;line-height:1;cursor:pointer;
+  }
+  .tiny:active{background:rgba(244,239,230,.2)}
+
+  .big{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;margin:14px 0 10px;
+  }
+  .big .cval{font-size:56px;min-width:0}
+
+  /* settings */
+  .field{margin-top:22px}
+  .label{font-size:13px;color:rgba(244,239,230,.55);margin-bottom:9px}
+  .seg{display:flex;gap:8px}
+  .opt{
+    flex:1;padding:14px 0;border-radius:12px;border:1px solid rgba(244,239,230,.14);
+    background:none;color:rgba(244,239,230,.7);font:inherit;font-size:16px;cursor:pointer;
+  }
+  .opt.sel{background:var(--bone);border-color:var(--bone);color:#141211;font-weight:600}
+  .stepper{display:flex;align-items:center;gap:14px}
+  .stepper .cval{font-size:30px;flex:1}
+  .go{
+    width:100%;margin-top:26px;padding:17px;border:0;border-radius:14px;
+    background:var(--bone);color:#141211;font:inherit;font-size:16px;font-weight:600;cursor:pointer;
+  }
+  .go:active{opacity:.82}
+  .done{
+    width:100%;margin-top:18px;padding:14px;border-radius:12px;
+    border:1px solid rgba(244,239,230,.18);background:none;
+    color:rgba(244,239,230,.75);font:inherit;font-size:15px;cursor:pointer;
+  }
+
+  #gear{
+    position:fixed;z-index:35;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));
+    width:46px;height:46px;border-radius:50%;border:1px solid rgba(244,239,230,.2);
+    background:rgba(16,14,13,.6);backdrop-filter:blur(8px);
+    display:grid;place-items:center;cursor:pointer;
+  }
+  #gear svg{width:20px;height:20px;stroke:rgba(244,239,230,.8);fill:none;stroke-width:1.6}
+</style>
+</head>
+<body>
+
+<div id="table"></div>
+
+<button id="gear" aria-label="Settings">
+  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v2.4M12 18.8v2.4M21.2 12h-2.4M5.2 12H2.8M18.5 5.5l-1.7 1.7M7.2 16.8l-1.7 1.7M18.5 18.5l-1.7-1.7M7.2 7.2 5.5 5.5"/></svg>
+</button>
+
+<div id="scrim"></div>
+<div id="fan"></div>
+
+<div class="sheet" id="counter"></div>
+
+<div class="sheet" id="settings">
+  <h2>Settings</h2>
+  <p>Reset applies these to the table.</p>
+
+  <div class="field">
+    <div class="label">Players</div>
+    <div class="seg" id="segN"></div>
+  </div>
+
+  <div class="field">
+    <div class="label">Starting life</div>
+    <div class="stepper">
+      <button class="tiny" id="lifeDown">−</button>
+      <div class="cval" id="lifeVal">40</div>
+      <button class="tiny" id="lifeUp">+</button>
+    </div>
+    <div class="seg" style="margin-top:10px" id="segLife"></div>
+  </div>
+
+  <button class="go" id="resetBtn">Reset game</button>
+  <button class="done" id="closeSettings">Close</button>
+</div>
+
+<script>
+(function(){
+  const SEATS=[
+    {name:"Player 1",bg:"#14524a"},
+    {name:"Player 2",bg:"#5e2749"},
+    {name:"Player 3",bg:"#23386e"},
+    {name:"Player 4",bg:"#7a3b1e"}
+  ];
+  const ROT={2:[180,0],3:[180,180,0],4:[180,180,0,0]};
+
+  const state={n:4,start:40,players:[]};
+  const draft={n:4,start:40};
+
+  const table=document.getElementById("table");
+  const scrim=document.getElementById("scrim");
+  const fan=document.getElementById("fan");
+  const counter=document.getElementById("counter");
+  const settings=document.getElementById("settings");
+
+  /* Helper to prevent XSS when inserting dynamic strings into innerHTML */
+  function escapeHTML(str){
+    return String(str).replace(/[&<>"']/g, m=>({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[m]));
+  }
+
+  const buzz=ms=>{try{navigator.vibrate&&navigator.vibrate(ms)}catch(e){}};
+
+  function newGame(){
+    state.n=draft.n;state.start=draft.start;
+    state.players=Array.from({length:state.n},()=>({life:state.start,poison:0,cmd:{}}));
+    build();
+  }
+
+  function dead(i){
+    const p=state.players[i];
+    if(p.life<=0||p.poison>=10) return true;
+    return Object.values(p.cmd).some(v=>v>=21);
+  }
+
+  function build(){
+    table.dataset.n=state.n;
+    table.innerHTML="";
+    state.players.forEach((p,i)=>{
+      const seat=document.createElement("div");
+      seat.className="seat";
+      seat.style.background=escapeHTML(SEATS[i].bg);
+      seat.innerHTML=`
+        <div class="inner" style="transform:rotate(${ROT[state.n][i]}deg)">
+          <div class="marks">
+            <div class="mark" data-mark="poison"></div>
+            <div class="mark" data-mark="cmd"></div>
+          </div>
+          <div class="row">
+            <button class="step" data-d="-1">−</button>
+            <div class="life"></div>
+            <button class="step" data-d="1">+</button>
+          </div>
+          <div class="name">${escapeHTML(SEATS[i].name)}</div>
+        </div>`;
+      seat.querySelectorAll(".step").forEach(b=>{
+        hold(b,()=>{state.players[i].life+=Number(b.dataset.d);sync();});
+      });
+      longpress(seat.querySelector(".life"),i);
+      table.appendChild(seat);
+    });
+    sync();
+  }
+
+  function sync(){
+    [...table.children].forEach((seat,i)=>{
+      const p=state.players[i];
+      seat.querySelector(".life").textContent=p.life;
+      seat.classList.toggle("down",dead(i));
+      const mp=seat.querySelector('[data-mark="poison"]');
+      mp.classList.toggle("on",p.poison>0);
+      mp.classList.toggle("alarm",p.poison>=10);
+      mp.textContent=p.poison+" poison";
+      const worst=Math.max(0,...Object.values(p.cmd));
+      const mc=seat.querySelector('[data-mark="cmd"]');
+      mc.classList.toggle("on",worst>0);
+      mc.classList.toggle("alarm",worst>=21);
+      mc.textContent=worst+" commander";
+    });
+  }
+
+  /* press-and-hold repeat on the life buttons */
+  function hold(el,fn){
+    let t,r;
+    const stop=()=>{clearTimeout(t);clearInterval(r);};
+    el.addEventListener("pointerdown",e=>{
+      e.preventDefault();fn();
+      t=setTimeout(()=>{let gap=140;r=setInterval(fn,gap);},420);
+    });
+    ["pointerup","pointercancel","pointerleave"].forEach(ev=>el.addEventListener(ev,stop));
+  }
+
+  /* long press on the life total -> drag to a chip */
+  function longpress(el,i){
+    let timer=null,open=false,hot=null;
+
+    const cleanup=()=>{
+      clearTimeout(timer);
+      window.removeEventListener("pointermove",move);
+      window.removeEventListener("pointerup",up);
+      window.removeEventListener("pointercancel",cleanup);
+    };
+
+    const move=e=>{
+      if(!open)return;
+      const t=e.touches?e.touches[0]:e;
+      const el2=document.elementFromPoint(t.clientX,t.clientY);
+      const chip=el2&&el2.closest?el2.closest(".chip"):null;
+      if(chip!==hot){
+        if(hot)hot.classList.remove("hot");
+        hot=chip;
+        if(hot){hot.classList.add("hot");buzz(8);}
+      }
+    };
+
+    const up=()=>{
+      cleanup();
+      if(open&&hot){const k=hot.dataset.kind;closeFan();openCounter(i,k);}
+    };
+
+    el.addEventListener("contextmenu",e=>e.preventDefault());
+    el.addEventListener("pointerdown",e=>{
+      e.preventDefault();
+      cleanup();
+      open=false;hot=null;
+      const x=e.clientX,y=e.clientY;
+      timer=setTimeout(()=>{open=true;buzz(14);showFan(x,y,i);},380);
+      window.addEventListener("pointermove",move);
+      window.addEventListener("pointerup",up);
+      window.addEventListener("pointercancel",cleanup);
+    });
+  }
+
+  function showFan(x,y,i){
+    fan.innerHTML=`
+      <div class="chip" data-kind="cmd" style="left:-82px;top:-26px">Commander<br>damage</div>
+      <div class="chip" data-kind="poison" style="left:82px;top:-26px">Poison<br>counters</div>`;
+    fan.style.transform=`translate(${x}px,${y}px) rotate(${ROT[state.n][i]}deg)`;
+    fan.classList.add("on");scrim.classList.add("on");
+    fan.querySelectorAll(".chip").forEach(c=>{
+      c.addEventListener("click",()=>{const k=c.dataset.kind;closeFan();openCounter(i,k);});
+    });
+  }
+  function closeFan(){fan.classList.remove("on");scrim.classList.remove("on");fan.innerHTML="";}
+
+  /* counter sheet */
+  function openCounter(i,kind){
+    const p=state.players[i];
+    const rot=ROT[state.n][i];
+    counter.style.transform=`translate(-50%,-50%) rotate(${rot}deg)`;
+
+    if(kind==="poison"){
+      counter.innerHTML=`
+        <h2>Poison counters</h2>
+        <p>Ten counters and ${escapeHTML(SEATS[i].name)} is out.</p>
+        <div class="big">
+          <button class="tiny" data-p="-1">−</button>
+          <div class="cval${p.poison>=10?" alarm":""}" id="pv">${p.poison}</div>
+          <button class="tiny" data-p="1">+</button>
+        </div>
+        <button class="done">Done</button>`;
+      counter.querySelectorAll("[data-p]").forEach(b=>{
+        b.addEventListener("click",()=>{
+          p.poison=Math.max(0,p.poison+Number(b.dataset.p));
+          const v=counter.querySelector("#pv");
+          v.textContent=p.poison;v.classList.toggle("alarm",p.poison>=10);
+          sync();
+        });
+      });
+    }else{
+      const rows=state.players.map((_,j)=>j).filter(j=>j!==i).map(j=>{
+        const v=p.cmd[j]||0;
+        return `<div class="crow">
+          <div class="who"><span class="dot" style="background:${escapeHTML(SEATS[j].bg)}"></span>${escapeHTML(SEATS[j].name)}</div>
+          <button class="tiny" data-j="${j}" data-d="-1">−</button>
+          <div class="cval${v>=21?" alarm":""}" data-v="${j}">${v}</div>
+          <button class="tiny" data-j="${j}" data-d="1">+</button>
+        </div>`;
+      }).join("");
+      counter.innerHTML=`
+        <h2>Commander damage</h2>
+        <p>Twenty-one from one commander is lethal. Life total changes with it.</p>
+        <div style="margin-top:8px">${rows}</div>
+        <button class="done">Done</button>`;
+      counter.querySelectorAll("[data-j]").forEach(b=>{
+        b.addEventListener("click",()=>{
+          const j=b.dataset.j,d=Number(b.dataset.d);
+          const cur=p.cmd[j]||0;
+          const next=Math.max(0,cur+d);
+          if(next===cur)return;
+          p.cmd[j]=next;
+          p.life-=(next-cur);
+          const v=counter.querySelector(`[data-v="${j}"]`);
+          v.textContent=next;v.classList.toggle("alarm",next>=21);
+          sync();
+        });
+      });
+    }
+    counter.querySelector(".done").addEventListener("click",closeSheets);
+    counter.classList.add("on");scrim.classList.add("on");
+  }
+
+  function closeSheets(){
+    counter.classList.remove("on");
+    settings.classList.remove("on");
+    scrim.classList.remove("on");
+  }
+  scrim.addEventListener("pointerdown",()=>{closeFan();closeSheets();});
+
+  /* settings */
+  const segN=document.getElementById("segN");
+  const segLife=document.getElementById("segLife");
+  const lifeVal=document.getElementById("lifeVal");
+
+  [2,3,4].forEach(n=>{
+    const b=document.createElement("button");
+    b.className="opt";b.textContent=n;b.dataset.n=n;
+    b.addEventListener("click",()=>{draft.n=n;paint();});
+    segN.appendChild(b);
+  });
+  [20,30,40].forEach(v=>{
+    const b=document.createElement("button");
+    b.className="opt";b.textContent=v;b.dataset.life=v;
+    b.addEventListener("click",()=>{draft.start=v;paint();});
+    segLife.appendChild(b);
+  });
+  document.getElementById("lifeDown").addEventListener("click",()=>{draft.start=Math.max(1,draft.start-1);paint();});
+  document.getElementById("lifeUp").addEventListener("click",()=>{draft.start=Math.min(999,draft.start+1);paint();});
+
+  function paint(){
+    lifeVal.textContent=draft.start;
+    segN.querySelectorAll(".opt").forEach(b=>b.classList.toggle("sel",Number(b.dataset.n)===draft.n));
+    segLife.querySelectorAll(".opt").forEach(b=>b.classList.toggle("sel",Number(b.dataset.life)===draft.start));
+  }
+
+  document.getElementById("gear").addEventListener("click",()=>{
+    paint();settings.classList.add("on");scrim.classList.add("on");
+  });
+  document.getElementById("closeSettings").addEventListener("click",closeSheets);
+  document.getElementById("resetBtn").addEventListener("click",()=>{newGame();closeSheets();});
+
+  document.addEventListener("gesturestart",e=>e.preventDefault());
+  paint();newGame();
+})();
+</script>
+</body>
+</html>

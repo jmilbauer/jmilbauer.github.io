@@ -28,7 +28,7 @@
   #table[data-n="3"],#table[data-n="4"]{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
   #table[data-n="3"] .seat:nth-child(3){grid-column:1/3}
 
-  .seat{position:relative;overflow:hidden;container-type:size}
+  .seat{position:relative;overflow:hidden;container-type:size;color:var(--bone)}
   .seat::after{
     content:"";position:absolute;inset:0;pointer-events:none;
     background:radial-gradient(120% 90% at 50% 45%,rgba(255,255,255,.07),rgba(0,0,0,.28));
@@ -44,21 +44,21 @@
   .mark{
     font-size:max(11px,2.6cqmin);letter-spacing:.01em;
     padding:4px 9px;border-radius:999px;
-    background:rgba(0,0,0,.26);color:rgba(244,239,230,.78);
+    background:rgba(0,0,0,.26);color:currentColor;opacity:.85;
     display:none;
   }
   .mark.on{display:block}
-  .mark.alarm{background:rgba(244,239,230,.9);color:#1a1614;font-weight:600}
+  .mark.alarm{background:var(--bone);color:#1a1614;font-weight:600;opacity:1}
 
   .row{display:flex;align-items:center;justify-content:center;width:100%}
 
   .step{
     flex:0 0 auto;width:24cqmin;max-width:120px;height:26cqmin;max-height:130px;
-    background:none;border:0;color:rgba(244,239,230,.55);
+    background:none;border:0;color:currentColor;opacity:.55;
     font:inherit;font-size:9cqmin;line-height:1;
     display:grid;place-items:center;cursor:pointer;touch-action:none;
   }
-  .step:active{color:var(--bone)}
+  .step:active{opacity:1}
 
   .life{
     flex:1 1 auto;text-align:center;
@@ -68,22 +68,37 @@
   }
   .seat.down .life{opacity:.5}
   .name{
-    font-size:max(11px,2.6cqmin);color:rgba(244,239,230,.5);
+    font-size:max(11px,2.6cqmin);color:currentColor;opacity:.5;
     letter-spacing:.02em;
   }
+
+  /* light seat colours need dark ink and softer shading */
+  body.light-seats .seat{color:#211d1a}
+  body.light-seats .seat::after{
+    background:radial-gradient(120% 90% at 50% 45%,rgba(255,255,255,.4),rgba(0,0,0,.13));
+  }
+  body.light-seats .mark{background:rgba(255,255,255,.55)}
+  body.light-seats .mark.alarm{background:#241f1c;color:#f6f2ea}
+  body.light-seats .seat.down{filter:saturate(.2) brightness(.94);opacity:.62}
 
   /* ---------- long-press menu ---------- */
   #scrim{position:fixed;inset:0;background:rgba(10,9,8,.55);display:none;z-index:40}
   #scrim.on{display:block}
 
-  #fan{position:fixed;left:0;top:0;z-index:50;display:none}
-  #fan.on{display:block}
+  /* anchored to the middle of the screen, rotated to face the player */
+  #fan{
+    position:fixed;left:50%;top:50%;z-index:50;display:none;
+    flex-direction:column;align-items:center;gap:14px;
+    transform:translate(-50%,-50%);
+  }
+  #fan.on{display:flex}
+  .fanwho{font-size:13px;letter-spacing:.02em;color:rgba(244,239,230,.6)}
+  .fanrow{display:flex;gap:12px}
   .chip{
-    position:absolute;transform:translate(-50%,-50%);
-    width:138px;padding:15px 10px;border-radius:14px;
+    width:clamp(112px,36vw,148px);padding:16px 10px;border-radius:14px;
     background:rgba(20,18,17,.92);border:1px solid rgba(244,239,230,.22);
     color:rgba(244,239,230,.82);text-align:center;
-    font-size:14px;letter-spacing:.01em;line-height:1.25;
+    font-size:14px;letter-spacing:.01em;line-height:1.25;cursor:pointer;
   }
   .chip.hot{background:var(--bone);color:#141211;border-color:var(--bone)}
 
@@ -93,6 +108,7 @@
     background:#191715;border-top:1px solid rgba(244,239,230,.12);
     border-radius:20px 20px 0 0;
     padding:22px 20px calc(22px + env(safe-area-inset-bottom));
+    max-height:92dvh;overflow-y:auto;
   }
   .sheet.on{display:block}
   .sheet h2{font-size:19px;font-weight:600;letter-spacing:-.01em;margin-bottom:4px}
@@ -139,6 +155,12 @@
     background:none;color:rgba(244,239,230,.7);font:inherit;font-size:16px;cursor:pointer;
   }
   .opt.sel{background:var(--bone);border-color:var(--bone);color:#141211;font-weight:600}
+  .opt.theme{
+    display:flex;flex-direction:column;align-items:center;gap:9px;
+    padding:12px 0;font-size:14px;
+  }
+  .swatch{display:flex;gap:3px}
+  .swatch i{width:11px;height:11px;border-radius:3px;display:block}
   .stepper{display:flex;align-items:center;gap:14px}
   .stepper .cval{font-size:30px;flex:1}
   .go{
@@ -176,7 +198,7 @@
 
 <div class="sheet" id="settings">
   <h2>Settings</h2>
-  <p>Reset applies these to the table.</p>
+  <p>Colors change right away. Players and starting life apply when you reset.</p>
 
   <div class="field">
     <div class="label">Players</div>
@@ -193,21 +215,28 @@
     <div class="seg" style="margin-top:10px" id="segLife"></div>
   </div>
 
+  <div class="field">
+    <div class="label">Colors</div>
+    <div class="seg" id="segTheme"></div>
+  </div>
+
   <button class="go" id="resetBtn">Reset game</button>
   <button class="done" id="closeSettings">Close</button>
 </div>
 
 <script>
 (function(){
-  const SEATS=[
-    {name:"Player 1",bg:"#14524a"},
-    {name:"Player 2",bg:"#5e2749"},
-    {name:"Player 3",bg:"#23386e"},
-    {name:"Player 4",bg:"#7a3b1e"}
-  ];
+  const NAMES=["Player 1","Player 2","Player 3","Player 4"];
+
+  const THEMES={
+    classic:{label:"Classic",light:false,seats:["#14524a","#5e2749","#23386e","#7a3b1e"]},
+    pastel :{label:"Pastel", light:true ,seats:["#a7cdbd","#e8b6c7","#b6c4e9","#f0c69c"]},
+    vibrant:{label:"Vibrant",light:false,seats:["#00a184","#d4176c","#2f57dd","#ef6207"]}
+  };
+
   const ROT={2:[180,0],3:[180,180,0],4:[180,180,0,0]};
 
-  const state={n:4,start:40,players:[]};
+  const state={n:4,start:40,theme:"classic",players:[]};
   const draft={n:4,start:40};
 
   const table=document.getElementById("table");
@@ -222,6 +251,9 @@
       '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
     }[m]));
   }
+
+  const theme=()=>THEMES[state.theme];
+  const seatColor=i=>theme().seats[i];
 
   const buzz=ms=>{try{navigator.vibrate&&navigator.vibrate(ms)}catch(e){}};
 
@@ -238,12 +270,13 @@
   }
 
   function build(){
+    document.body.classList.toggle("light-seats",theme().light);
     table.dataset.n=state.n;
     table.innerHTML="";
     state.players.forEach((p,i)=>{
       const seat=document.createElement("div");
       seat.className="seat";
-      seat.style.background=escapeHTML(SEATS[i].bg);
+      seat.style.background=seatColor(i);
       seat.innerHTML=`
         <div class="inner" style="transform:rotate(${ROT[state.n][i]}deg)">
           <div class="marks">
@@ -255,7 +288,7 @@
             <div class="life"></div>
             <button class="step" data-d="1">+</button>
           </div>
-          <div class="name">${escapeHTML(SEATS[i].name)}</div>
+          <div class="name">${escapeHTML(NAMES[i])}</div>
         </div>`;
       seat.querySelectorAll(".step").forEach(b=>{
         hold(b,()=>{state.players[i].life+=Number(b.dataset.d);sync();});
@@ -294,7 +327,7 @@
     ["pointerup","pointercancel","pointerleave"].forEach(ev=>el.addEventListener(ev,stop));
   }
 
-  /* long press on the life total -> drag to a chip */
+  /* long press on the life total -> tap or drag to a chip */
   function longpress(el,i){
     let timer=null,open=false,hot=null;
 
@@ -327,19 +360,22 @@
       e.preventDefault();
       cleanup();
       open=false;hot=null;
-      const x=e.clientX,y=e.clientY;
-      timer=setTimeout(()=>{open=true;buzz(14);showFan(x,y,i);},380);
+      timer=setTimeout(()=>{open=true;buzz(14);showFan(i);},380);
       window.addEventListener("pointermove",move);
       window.addEventListener("pointerup",up);
       window.addEventListener("pointercancel",cleanup);
     });
   }
 
-  function showFan(x,y,i){
+  /* menu sits in the middle of the screen, turned to face the player */
+  function showFan(i){
     fan.innerHTML=`
-      <div class="chip" data-kind="cmd" style="left:-82px;top:-26px">Commander<br>damage</div>
-      <div class="chip" data-kind="poison" style="left:82px;top:-26px">Poison<br>counters</div>`;
-    fan.style.transform=`translate(${x}px,${y}px) rotate(${ROT[state.n][i]}deg)`;
+      <div class="fanwho">${escapeHTML(NAMES[i])}</div>
+      <div class="fanrow">
+        <div class="chip" data-kind="cmd">Commander<br>damage</div>
+        <div class="chip" data-kind="poison">Poison<br>counters</div>
+      </div>`;
+    fan.style.transform=`translate(-50%,-50%) rotate(${ROT[state.n][i]}deg)`;
     fan.classList.add("on");scrim.classList.add("on");
     fan.querySelectorAll(".chip").forEach(c=>{
       c.addEventListener("click",()=>{const k=c.dataset.kind;closeFan();openCounter(i,k);});
@@ -356,7 +392,7 @@
     if(kind==="poison"){
       counter.innerHTML=`
         <h2>Poison counters</h2>
-        <p>Ten counters and ${escapeHTML(SEATS[i].name)} is out.</p>
+        <p>Ten counters and ${escapeHTML(NAMES[i])} is out.</p>
         <div class="big">
           <button class="tiny" data-p="-1">−</button>
           <div class="cval${p.poison>=10?" alarm":""}" id="pv">${p.poison}</div>
@@ -375,7 +411,7 @@
       const rows=state.players.map((_,j)=>j).filter(j=>j!==i).map(j=>{
         const v=p.cmd[j]||0;
         return `<div class="crow">
-          <div class="who"><span class="dot" style="background:${escapeHTML(SEATS[j].bg)}"></span>${escapeHTML(SEATS[j].name)}</div>
+          <div class="who"><span class="dot" style="background:${escapeHTML(seatColor(j))}"></span>${escapeHTML(NAMES[j])}</div>
           <button class="tiny" data-j="${j}" data-d="-1">−</button>
           <div class="cval${v>=21?" alarm":""}" data-v="${j}">${v}</div>
           <button class="tiny" data-j="${j}" data-d="1">+</button>
@@ -414,6 +450,7 @@
   /* settings */
   const segN=document.getElementById("segN");
   const segLife=document.getElementById("segLife");
+  const segTheme=document.getElementById("segTheme");
   const lifeVal=document.getElementById("lifeVal");
 
   [2,3,4].forEach(n=>{
@@ -428,6 +465,15 @@
     b.addEventListener("click",()=>{draft.start=v;paint();});
     segLife.appendChild(b);
   });
+  Object.keys(THEMES).forEach(key=>{
+    const t=THEMES[key];
+    const b=document.createElement("button");
+    b.className="opt theme";b.dataset.theme=key;
+    b.innerHTML=`<span class="swatch">${t.seats.map(c=>`<i style="background:${escapeHTML(c)}"></i>`).join("")}</span><span>${escapeHTML(t.label)}</span>`;
+    b.addEventListener("click",()=>{state.theme=key;build();paint();});
+    segTheme.appendChild(b);
+  });
+
   document.getElementById("lifeDown").addEventListener("click",()=>{draft.start=Math.max(1,draft.start-1);paint();});
   document.getElementById("lifeUp").addEventListener("click",()=>{draft.start=Math.min(999,draft.start+1);paint();});
 
@@ -435,6 +481,7 @@
     lifeVal.textContent=draft.start;
     segN.querySelectorAll(".opt").forEach(b=>b.classList.toggle("sel",Number(b.dataset.n)===draft.n));
     segLife.querySelectorAll(".opt").forEach(b=>b.classList.toggle("sel",Number(b.dataset.life)===draft.start));
+    segTheme.querySelectorAll(".opt").forEach(b=>b.classList.toggle("sel",b.dataset.theme===state.theme));
   }
 
   document.getElementById("gear").addEventListener("click",()=>{
